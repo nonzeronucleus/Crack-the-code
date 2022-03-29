@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28A4455827F214A600E8EAF2 /* CurrentGuessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A4455727F214A600E8EAF2 /* CurrentGuessView.swift */; };
+		28A4455A27F214C300E8EAF2 /* CurrentGuess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A4455927F214C300E8EAF2 /* CurrentGuess.swift */; };
+		28A4455F27F2412B00E8EAF2 /* AnnaiMN.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28A4455E27F2412B00E8EAF2 /* AnnaiMN.ttf */; };
+		28A4456527F24E1D00E8EAF2 /* PreviousGuessesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A4456427F24E1D00E8EAF2 /* PreviousGuessesView.swift */; };
 		28E1C0EB27F0FB3C0030852C /* Crack_The_CodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E1C0EA27F0FB3C0030852C /* Crack_The_CodeApp.swift */; };
 		28E1C0ED27F0FB3C0030852C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E1C0EC27F0FB3C0030852C /* ContentView.swift */; };
 		28E1C0EF27F0FB3E0030852C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28E1C0EE27F0FB3E0030852C /* Assets.xcassets */; };
@@ -21,6 +25,16 @@
 		28E1C11F27F106890030852C /* GameColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E1C11E27F106890030852C /* GameColors.swift */; };
 		28E1C12527F11A8F0030852C /* ActionKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E1C12427F11A8F0030852C /* ActionKey.swift */; };
 		28E1C12727F11ADA0030852C /* ColorBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E1C12627F11ADA0030852C /* ColorBoard.swift */; };
+		28E1C12E27F18F8F0030852C /* ukenglish.txt in Resources */ = {isa = PBXBuildFile; fileRef = 28E1C12A27F18F8F0030852C /* ukenglish.txt */; };
+		28E1C12F27F18F8F0030852C /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 28E1C12B27F18F8F0030852C /* words.txt */; };
+		28E1C13027F18F8F0030852C /* ukenglishadult in Resources */ = {isa = PBXBuildFile; fileRef = 28E1C12C27F18F8F0030852C /* ukenglishadult */; };
+		28E1C13127F18F8F0030852C /* ukenglonglist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 28E1C12D27F18F8F0030852C /* ukenglonglist.txt */; };
+		28E1C13327F18FB20030852C /* WordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E1C13227F18FB20030852C /* WordList.swift */; };
+		28E1C13527F19A850030852C /* GuessTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E1C13427F19A850030852C /* GuessTracker.swift */; };
+		28E1C13827F1DACE0030852C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E1C13727F1DACE0030852C /* Log.swift */; };
+		28E1C13A27F1DAE70030852C /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E1C13927F1DAE70030852C /* ViewExtension.swift */; };
+		28E1C13C27F1DB040030852C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E1C13B27F1DB040030852C /* StringExtension.swift */; };
+		28E1C13E27F1E3050030852C /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E1C13D27F1E3050030852C /* GameState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +55,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28A4455727F214A600E8EAF2 /* CurrentGuessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentGuessView.swift; sourceTree = "<group>"; };
+		28A4455927F214C300E8EAF2 /* CurrentGuess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentGuess.swift; sourceTree = "<group>"; };
+		28A4455D27F23EFB00E8EAF2 /* Crack-The-Code-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Crack-The-Code-Info.plist"; sourceTree = SOURCE_ROOT; };
+		28A4455E27F2412B00E8EAF2 /* AnnaiMN.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AnnaiMN.ttf; sourceTree = "<group>"; };
+		28A4456427F24E1D00E8EAF2 /* PreviousGuessesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousGuessesView.swift; sourceTree = "<group>"; };
 		28E1C0E727F0FB3C0030852C /* Crack The Code.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crack The Code.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E1C0EA27F0FB3C0030852C /* Crack_The_CodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crack_The_CodeApp.swift; sourceTree = "<group>"; };
 		28E1C0EC27F0FB3C0030852C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +77,16 @@
 		28E1C11E27F106890030852C /* GameColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameColors.swift; sourceTree = "<group>"; };
 		28E1C12427F11A8F0030852C /* ActionKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionKey.swift; sourceTree = "<group>"; };
 		28E1C12627F11ADA0030852C /* ColorBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBoard.swift; sourceTree = "<group>"; };
+		28E1C12A27F18F8F0030852C /* ukenglish.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ukenglish.txt; sourceTree = "<group>"; };
+		28E1C12B27F18F8F0030852C /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
+		28E1C12C27F18F8F0030852C /* ukenglishadult */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ukenglishadult; sourceTree = "<group>"; };
+		28E1C12D27F18F8F0030852C /* ukenglonglist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ukenglonglist.txt; sourceTree = "<group>"; };
+		28E1C13227F18FB20030852C /* WordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordList.swift; sourceTree = "<group>"; };
+		28E1C13427F19A850030852C /* GuessTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTracker.swift; sourceTree = "<group>"; };
+		28E1C13727F1DACE0030852C /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		28E1C13927F1DAE70030852C /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		28E1C13B27F1DB040030852C /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		28E1C13D27F1E3050030852C /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +114,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28A4455B27F2162E00E8EAF2 /* Guesses */ = {
+			isa = PBXGroup;
+			children = (
+				28A4455727F214A600E8EAF2 /* CurrentGuessView.swift */,
+				28A4456427F24E1D00E8EAF2 /* PreviousGuessesView.swift */,
+			);
+			path = Guesses;
+			sourceTree = "<group>";
+		};
 		28E1C0DE27F0FB3C0030852C = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +146,10 @@
 		28E1C0E927F0FB3C0030852C /* Crack The Code */ = {
 			isa = PBXGroup;
 			children = (
+				28A4455D27F23EFB00E8EAF2 /* Crack-The-Code-Info.plist */,
+				28E1C13627F1DAC30030852C /* Utils */,
+				28E1C12927F18F640030852C /* Resources */,
+				28E1C12827F18EA30030852C /* Data */,
 				28E1C11427F0FFDB0030852C /* Views */,
 				28E1C0EA27F0FB3C0030852C /* Crack_The_CodeApp.swift */,
 				28E1C0EE27F0FB3E0030852C /* Assets.xcassets */,
@@ -144,6 +186,7 @@
 		28E1C11427F0FFDB0030852C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				28A4455B27F2162E00E8EAF2 /* Guesses */,
 				28E1C11727F1061C0030852C /* Keyboard */,
 				28E1C0EC27F0FB3C0030852C /* ContentView.swift */,
 				28E1C11527F0FFEF0030852C /* GameView.swift */,
@@ -162,6 +205,39 @@
 				28E1C12627F11ADA0030852C /* ColorBoard.swift */,
 			);
 			path = Keyboard;
+			sourceTree = "<group>";
+		};
+		28E1C12827F18EA30030852C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				28E1C13227F18FB20030852C /* WordList.swift */,
+				28E1C13427F19A850030852C /* GuessTracker.swift */,
+				28E1C13D27F1E3050030852C /* GameState.swift */,
+				28A4455927F214C300E8EAF2 /* CurrentGuess.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		28E1C12927F18F640030852C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				28E1C12A27F18F8F0030852C /* ukenglish.txt */,
+				28E1C12C27F18F8F0030852C /* ukenglishadult */,
+				28E1C12D27F18F8F0030852C /* ukenglonglist.txt */,
+				28E1C12B27F18F8F0030852C /* words.txt */,
+				28A4455E27F2412B00E8EAF2 /* AnnaiMN.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		28E1C13627F1DAC30030852C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				28E1C13727F1DACE0030852C /* Log.swift */,
+				28E1C13927F1DAE70030852C /* ViewExtension.swift */,
+				28E1C13B27F1DB040030852C /* StringExtension.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +344,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E1C12E27F18F8F0030852C /* ukenglish.txt in Resources */,
 				28E1C0F227F0FB3F0030852C /* Preview Assets.xcassets in Resources */,
+				28E1C13027F18F8F0030852C /* ukenglishadult in Resources */,
+				28E1C13127F18F8F0030852C /* ukenglonglist.txt in Resources */,
+				28E1C12F27F18F8F0030852C /* words.txt in Resources */,
+				28A4455F27F2412B00E8EAF2 /* AnnaiMN.ttf in Resources */,
 				28E1C0EF27F0FB3E0030852C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,13 +377,22 @@
 			files = (
 				28E1C0ED27F0FB3C0030852C /* ContentView.swift in Sources */,
 				28E1C12727F11ADA0030852C /* ColorBoard.swift in Sources */,
+				28E1C13827F1DACE0030852C /* Log.swift in Sources */,
 				28E1C12527F11A8F0030852C /* ActionKey.swift in Sources */,
 				28E1C11627F0FFEF0030852C /* GameView.swift in Sources */,
 				28E1C11F27F106890030852C /* GameColors.swift in Sources */,
+				28A4455A27F214C300E8EAF2 /* CurrentGuess.swift in Sources */,
+				28A4455827F214A600E8EAF2 /* CurrentGuessView.swift in Sources */,
 				28E1C11B27F106470030852C /* Letter.swift in Sources */,
 				28E1C11D27F1065C0030852C /* LetterKey.swift in Sources */,
+				28E1C13C27F1DB040030852C /* StringExtension.swift in Sources */,
+				28A4456527F24E1D00E8EAF2 /* PreviousGuessesView.swift in Sources */,
 				28E1C11927F106310030852C /* Keyboard.swift in Sources */,
+				28E1C13527F19A850030852C /* GuessTracker.swift in Sources */,
 				28E1C0EB27F0FB3C0030852C /* Crack_The_CodeApp.swift in Sources */,
+				28E1C13E27F1E3050030852C /* GameState.swift in Sources */,
+				28E1C13327F18FB20030852C /* WordList.swift in Sources */,
+				28E1C13A27F1DAE70030852C /* ViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +554,8 @@
 				DEVELOPMENT_TEAM = 94QXMD3DVD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Crack-The-Code-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -493,6 +585,8 @@
 				DEVELOPMENT_TEAM = 94QXMD3DVD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Crack-The-Code-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -2,20 +2,31 @@ import SwiftUI
 
 
 
-struct BottomView: View {
+struct TopView: View {
+    @EnvironmentObject var state: GameState
+
     var body: some View {
-//        Keyboard()
-        Text("d")
+        VStack {
+            PreviousGuessesView(guessTracker: state.guessTracker)
+            Spacer()
+//            CurrentGuessView(currentGuess: state.guessTracker.currentGuess)
+        }
+    }
+}
+
+
+struct BottomView: View {
+    @EnvironmentObject var state: GameState
+
+    var body: some View {
+        LetterKeyboard(currentGuess:state.guessTracker.currentGuess)
     }
 }
 
 
 struct GameView: View {
-//    @EnvironmentObject var state: GameState
     
     var body: some View {
-//        let numExtraSquared = Settings.shared.showPreviousGuessColours ? 0 : 2
-//        let numSquares = state.maxLetters + numExtraSquared
         let numSquares = 5
         let padding = 25.0 - Double(numSquares)
 
@@ -25,74 +36,32 @@ struct GameView: View {
                     let size = min(geo.size.width * 0.99, geo.size.height * 0.55)
 
                     Spacer(minLength: 0)
-                    Color.red
+                    TopView()
                         .padding(.leading,padding)
                         .padding(.trailing,padding)
                         .frame(width: size, height:size, alignment: .center)
                     Spacer()
                 }
                 Spacer()
-//                if (state.invalidWord) {
-//                    Text("Invalid Word")
-//                        .font(.title)
-//                }
-//                BottomView()
                 BottomView()
-//                switch(state.status) {
-//                    case .won: EndGameView(
-//                        WinView(),
-//                        onClick: state.startGame)
-//                    case .lost:
-//                        LoseView(text:"You Lost.")
-//                    case .stillLost:
-//                        LoseView(text:"Still Wrong.")
-//                case .revealAnswer:
-//                    EndGameView(
-//                        RevealAnswerView(word: state.chosenWord),
-//                        onClick: state.startGame
-//                    )
-//                    default:
-//                        Keyboard(state)
-//                        .disabled(state.showingAnimation)
-//                }
             }
         }
         .onAppear {
 //            state.showAnimation = false
         }
+        .font(Font.custom("AnnaiMN-Regular", size: 18))
+
     }
 }
 
 
 
 struct GameView_Previews: PreviewProvider {
-//    static let state = GameState()
-//    static let completedState = GameState(status:.won)
-//    static var stateWithLotsOfGuesses = GameState(maxGuesses: 20, maxLetters: 20)
-    
-    static var previews: some View {
-        
-        GameView()
-//            .environmentObject(state)
-            .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
+    static let state = GameState()
 
-//        GameView()
-//            .environmentObject(state)
-//            .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
-//
-//
-//        GameView()
-//            .environmentObject(stateWithLotsOfGuesses)
-//            .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
-//
-//        GameView()
-//            .environmentObject(stateWithLotsOfGuesses)
-//            .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
-//
-//        GameView()
-//            .environmentObject(completedState)
-//        GameView()
-//            .environmentObject(completedState)
-//            .preferredColorScheme(.dark)
+    static var previews: some View {
+        GameView()
+            .environmentObject(state)
+            .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
     }
 }

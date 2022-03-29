@@ -36,6 +36,4 @@ enum GameColors:Int {
             }
         }
     }
-
-
 }

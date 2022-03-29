@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct Crack_The_CodeApp: App {
+    @State private var state = GameState()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(state)
         }
     }
 }

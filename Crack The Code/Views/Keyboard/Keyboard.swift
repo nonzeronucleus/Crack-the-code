@@ -6,10 +6,12 @@ struct KeyboardRow: View {
     let spacing = 2.0
     private var letters:[Character]
     private let wideActionButtons: Bool
+    let currentGuess: CurrentGuess
     
-    init(_ letters:String, wideActionButtons:Bool){
+    init(_ letters:String, currentGuess: CurrentGuess, wideActionButtons:Bool){
         self.letters = [Character](letters)
         self.wideActionButtons = wideActionButtons
+        self.currentGuess = currentGuess
     }
     
     var body: some View {
@@ -25,17 +27,17 @@ struct KeyboardRow: View {
                     switch(letter) {
                     case "⌫":
                         ActionKey("⌫",
-                                  onClick: {},
+                                  onClick: {currentGuess.delete()},
                                   fontScale:0.6)
                             .frame(width:actionButtonWidth, height: geo.size.height, alignment:.center)
                     case "⏎":
                         ActionKey("⏎",
-                                  onClick: {},
+                                  onClick: {currentGuess.submitGuess()},
                                   fontScale:0.5)
                             .frame(width: actionButtonWidth, height: geo.size.height, alignment:.center)
                     default:
                         LetterKey(letterToShow,
-                              onClick:{ }
+                                  onClick:{ currentGuess.append(char: letterToShow)}
                         )
                             .frame(width: abs((geo.size.width/maxKeysPerRow)-spacing), height: geo.size.height, alignment:.center)
                     }
@@ -50,10 +52,13 @@ struct KeyboardRow: View {
 struct Keyboard: View {
     private var keys:[String]
     private let wideActionButtons: Bool
+    let currentGuess: CurrentGuess
+    @EnvironmentObject var state: GameState
     
-    init(keys:[String], wideActionButtons: Bool = true) {
+    init(keys:[String], currentGuess: CurrentGuess, wideActionButtons: Bool = true) {
         self.keys = keys
         self.wideActionButtons = wideActionButtons
+        self.currentGuess = currentGuess
     }
     
     var body: some View {
@@ -63,12 +68,14 @@ struct Keyboard: View {
                 let keyHeight = geo.size.width/maxKeysPerRow
 
                     VStack {
-                    Spacer()
-
-                    ForEach(keys, id:\.self) { letterRow in
-                        KeyboardRow(letterRow, wideActionButtons: wideActionButtons) //, state:state)
-                            .frame(width: geo.size.width, height: keyHeight, alignment:
-                                        .center)
+                        Spacer()
+                        CurrentGuessView(currentGuess: state.guessTracker.currentGuess)
+                            .padding(.bottom,20)
+                        
+                        ForEach(keys, id:\.self) { letterRow in
+                            KeyboardRow(letterRow, currentGuess: currentGuess, wideActionButtons: wideActionButtons) //, state:state)
+                                .frame(width: geo.size.width, height: keyHeight, alignment:
+                                            .center)
                     }
                 }
                 .padding(.bottom, keyHeight)
@@ -89,9 +96,14 @@ struct NumberPad: View {
         "⌫0⏎"
     ]
 
+    let currentGuess: CurrentGuess
+    
+    init(currentGuess: CurrentGuess) {
+        self.currentGuess = currentGuess
+    }
 
     var body: some View {
-        Keyboard(keys: numbers, wideActionButtons: false)
+        Keyboard(keys: numbers, currentGuess: currentGuess, wideActionButtons: false)
     }
 }
 
@@ -101,22 +113,28 @@ struct LetterKeyboard: View {
         "ASDFGHJKL",
         "⌫ZXCVBNM⏎"
     ]
+    
+    let currentGuess: CurrentGuess;
+    
+    init(currentGuess: CurrentGuess) {
+        self.currentGuess = currentGuess
+    }
 
 
     var body: some View {
-        Keyboard(keys: letters)
+        Keyboard(keys: letters, currentGuess: currentGuess)
     }
 }
 
 
 
 struct Keyboard_Previews: PreviewProvider {
-    
+    static let currentGuess = CurrentGuess(length: 5)
 
     static var previews: some View {
         VStack {
-            NumberPad()
-            LetterKeyboard()
+            NumberPad(currentGuess: currentGuess)
+            LetterKeyboard(currentGuess: currentGuess)
         }
     }
 }
