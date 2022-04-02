@@ -1,28 +1,9 @@
 import Foundation
 
 class WordList {
-    let shortList:[String]
-    let longlist:[String]
-    var possibleAnswers:[String] = []
-    var userWordList:[String] = []
-    var wordToGuess: String = ""
+    static let short:[String]  = WordList.loadFile("ukenglish")
+    static let long:[String] = WordList.loadFile("ukenglonglist")
 
-    init() {
-        shortList = WordList.loadFile("ukenglish")
-        longlist = WordList.loadFile("ukenglonglist")        
-    }
-    
-    func startGame(maxLetters:Int, useHardWords:Bool) {
-        possibleAnswers = useHardWords // answer will be based on user option
-            ? longlist.filter({$0.count == maxLetters})
-            : shortList.filter({$0.count == maxLetters})
-        
-        userWordList = longlist.filter({$0.count == maxLetters})
-        
-        self.wordToGuess = possibleAnswers[Int.random(in: 0..<possibleAnswers.count)]
-
-    }
-    
     static private func loadFile(_ name:String) -> [String] {
         guard let file = Bundle.main.url(forResource: name, withExtension: "txt")
         else {

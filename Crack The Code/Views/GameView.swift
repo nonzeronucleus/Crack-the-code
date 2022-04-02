@@ -3,11 +3,10 @@ import SwiftUI
 
 
 struct TopView: View {
-    @EnvironmentObject var state: GameState
 
     var body: some View {
         VStack {
-            PreviousGuessesView(guessTracker: state.guessTracker)
+            PreviousGuessesView()
             Spacer()
 //            CurrentGuessView(currentGuess: state.guessTracker.currentGuess)
         }
@@ -16,10 +15,8 @@ struct TopView: View {
 
 
 struct BottomView: View {
-    @EnvironmentObject var state: GameState
-
     var body: some View {
-        LetterKeyboard(currentGuess:state.guessTracker.currentGuess)
+        LetterKeyboard()
     }
 }
 
@@ -49,19 +46,17 @@ struct GameView: View {
         .onAppear {
 //            state.showAnimation = false
         }
-        .font(Font.custom("AnnaiMN-Regular", size: 18))
-
+        .font(gameFont)
     }
 }
+
+let gameFont = Font.custom("AnnaiMN-Regular", size: 18)
 
 
 
 struct GameView_Previews: PreviewProvider {
-    static let state = GameState()
-
     static var previews: some View {
         GameView()
-            .environmentObject(state)
             .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
     }
 }

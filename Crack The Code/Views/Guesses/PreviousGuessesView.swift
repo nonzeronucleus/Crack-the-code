@@ -1,64 +1,94 @@
-//
-//  PreviousGuessesView.swift
-//  Crack The Code
-//
-//  Created by Ian Plumb on 28/03/2022.
-//
-
 import SwiftUI
 
-struct PreviousGuessSquareView: View {
-    let char:Character
-    
-    init(_ char:Character) {
-        self.char = char
-    }
+
+
+fileprivate struct Header: View {
     var body: some View {
-        
-        VStack(spacing: 0) {
-            Text(String(char))
-//            Image("red-underline")
-//                .resizable()
-//                .frame(width: 32.0, height: 2.0)
+        HStack(spacing:4) {
+            Text("GUESS")
+                .bold()
+                .frame(width: 100,alignment: .leading)
+
+            Text("✓")
+                .frame(width: 40,alignment: .trailing)
+                .foregroundColor(.green)
+
+            Text("?")
+                .frame(width: 40,alignment: .trailing)
+                .foregroundColor(.orange)
+
         }
     }
 }
 
-
-
-struct PreviousGuessRowView: View {
+fileprivate struct Row: View {
     var guess:String
+    var wordToGuess:String
+    var numCorrectPos:Int = 0
+    var numWrongPos:Int = 0
     
-    init(guess:String) {
+    init(wordToGuess:String, guess:String) {
         self.guess = guess
+        self.wordToGuess = wordToGuess
+        let correctLetters = calcCorrectLetters(wordToGuess: wordToGuess, guess: guess)
+        numCorrectPos = correctLetters.correctPos
+        numWrongPos = correctLetters.wrongPos
     }
     
     var body: some View {
         HStack(spacing:4) {
-            ForEach(0..<guess.count, id:\.self) { idx in
-                PreviousGuessSquareView(guess[idx])
-            }
+            Text(guess)
+                .kerning(6)
+                .frame(width: Double(guess.count * 20),alignment: .leading)
+
+            Text(String(numCorrectPos))
+                .foregroundColor(.green)
+                .frame(width: 40,alignment: .trailing)
+
+            Text(String(numWrongPos))
+                .frame(width: 40,alignment: .trailing)
+                .foregroundColor(.orange)
+
+
         }
     }
 }
 
-struct PreviousGuessesView: View {
-    @ObservedObject var guessTracker:GuessTracker
-    
+
+fileprivate struct Impl: View {
+    var prevGuesses:[String]
+    var wordToGuess:String
+
     var body: some View {
         VStack {
-            let prevGuesses = guessTracker.prevGuesses
+            Header()
+                .padding()
             ForEach(prevGuesses , id:\.self) { guess in
-                PreviousGuessRowView(guess:guess.guess)
+                Row(wordToGuess:wordToGuess, guess:guess)
             }
+        }
+        .font(gameFont)
+    }
+}
+
+
+struct PreviousGuessesView: View {
+    @ObservedObject private var state = ObservableState(store: mainStore);
+
+    var body: some View {
+        VStack {
+            Impl(
+                prevGuesses:state.current.previousGuesses,
+                wordToGuess: state.current.wordToGuess)
         }
     }
 }
 
 struct PreviousGuessesView_Previews: PreviewProvider {
-    static let guessTracker = GuessTracker()
-    
     static var previews: some View {
-        PreviousGuessesView(guessTracker: guessTracker)
+        Impl(
+            prevGuesses: ["GUESS","WORDS","THING", "SSSSS"],
+            wordToGuess: "SWEAR"
+        )
     }
 }

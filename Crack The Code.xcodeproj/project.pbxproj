@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		28A4455827F214A600E8EAF2 /* CurrentGuessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A4455727F214A600E8EAF2 /* CurrentGuessView.swift */; };
-		28A4455A27F214C300E8EAF2 /* CurrentGuess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A4455927F214C300E8EAF2 /* CurrentGuess.swift */; };
 		28A4455F27F2412B00E8EAF2 /* AnnaiMN.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28A4455E27F2412B00E8EAF2 /* AnnaiMN.ttf */; };
 		28A4456527F24E1D00E8EAF2 /* PreviousGuessesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A4456427F24E1D00E8EAF2 /* PreviousGuessesView.swift */; };
+		28A4456927F63BB900E8EAF2 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A4456827F63BB900E8EAF2 /* ErrorView.swift */; };
 		28E1C0EB27F0FB3C0030852C /* Crack_The_CodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E1C0EA27F0FB3C0030852C /* Crack_The_CodeApp.swift */; };
 		28E1C0ED27F0FB3C0030852C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E1C0EC27F0FB3C0030852C /* ContentView.swift */; };
 		28E1C0EF27F0FB3E0030852C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28E1C0EE27F0FB3E0030852C /* Assets.xcassets */; };
@@ -30,11 +30,14 @@
 		28E1C13027F18F8F0030852C /* ukenglishadult in Resources */ = {isa = PBXBuildFile; fileRef = 28E1C12C27F18F8F0030852C /* ukenglishadult */; };
 		28E1C13127F18F8F0030852C /* ukenglonglist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 28E1C12D27F18F8F0030852C /* ukenglonglist.txt */; };
 		28E1C13327F18FB20030852C /* WordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E1C13227F18FB20030852C /* WordList.swift */; };
-		28E1C13527F19A850030852C /* GuessTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E1C13427F19A850030852C /* GuessTracker.swift */; };
 		28E1C13827F1DACE0030852C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E1C13727F1DACE0030852C /* Log.swift */; };
 		28E1C13A27F1DAE70030852C /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E1C13927F1DAE70030852C /* ViewExtension.swift */; };
 		28E1C13C27F1DB040030852C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E1C13B27F1DB040030852C /* StringExtension.swift */; };
-		28E1C13E27F1E3050030852C /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E1C13D27F1E3050030852C /* GameState.swift */; };
+		28EEC17D27F7747000628C90 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 28EEC17C27F7747000628C90 /* ReSwift */; };
+		28EEC18027F7897C00628C90 /* ObservableState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EEC17F27F7897C00628C90 /* ObservableState.swift */; };
+		28EEC18227F789AF00628C90 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EEC18127F789AF00628C90 /* State.swift */; };
+		28EEC18427F84FF800628C90 /* TestCorrectLetterCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EEC18327F84FF800628C90 /* TestCorrectLetterCount.swift */; };
+		28EEC18627F8508D00628C90 /* calcCorrectLetters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EEC18527F8508D00628C90 /* calcCorrectLetters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,10 +59,10 @@
 
 /* Begin PBXFileReference section */
 		28A4455727F214A600E8EAF2 /* CurrentGuessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentGuessView.swift; sourceTree = "<group>"; };
-		28A4455927F214C300E8EAF2 /* CurrentGuess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentGuess.swift; sourceTree = "<group>"; };
 		28A4455D27F23EFB00E8EAF2 /* Crack-The-Code-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Crack-The-Code-Info.plist"; sourceTree = SOURCE_ROOT; };
 		28A4455E27F2412B00E8EAF2 /* AnnaiMN.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AnnaiMN.ttf; sourceTree = "<group>"; };
 		28A4456427F24E1D00E8EAF2 /* PreviousGuessesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousGuessesView.swift; sourceTree = "<group>"; };
+		28A4456827F63BB900E8EAF2 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		28E1C0E727F0FB3C0030852C /* Crack The Code.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crack The Code.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E1C0EA27F0FB3C0030852C /* Crack_The_CodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crack_The_CodeApp.swift; sourceTree = "<group>"; };
 		28E1C0EC27F0FB3C0030852C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,11 +85,14 @@
 		28E1C12C27F18F8F0030852C /* ukenglishadult */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ukenglishadult; sourceTree = "<group>"; };
 		28E1C12D27F18F8F0030852C /* ukenglonglist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ukenglonglist.txt; sourceTree = "<group>"; };
 		28E1C13227F18FB20030852C /* WordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordList.swift; sourceTree = "<group>"; };
-		28E1C13427F19A850030852C /* GuessTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTracker.swift; sourceTree = "<group>"; };
 		28E1C13727F1DACE0030852C /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		28E1C13927F1DAE70030852C /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		28E1C13B27F1DB040030852C /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		28E1C13D27F1E3050030852C /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		28EEC17F27F7897C00628C90 /* ObservableState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableState.swift; sourceTree = "<group>"; };
+		28EEC18127F789AF00628C90 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		28EEC18327F84FF800628C90 /* TestCorrectLetterCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCorrectLetterCount.swift; sourceTree = "<group>"; };
+		28EEC18527F8508D00628C90 /* calcCorrectLetters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calcCorrectLetters.swift; sourceTree = "<group>"; };
+		28EEC18727F8514D00628C90 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28EEC17D27F7747000628C90 /* ReSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +153,7 @@
 		28E1C0E927F0FB3C0030852C /* Crack The Code */ = {
 			isa = PBXGroup;
 			children = (
+				28EEC17E27F7896200628C90 /* State */,
 				28A4455D27F23EFB00E8EAF2 /* Crack-The-Code-Info.plist */,
 				28E1C13627F1DAC30030852C /* Utils */,
 				28E1C12927F18F640030852C /* Resources */,
@@ -170,6 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				28E1C0FB27F0FB3F0030852C /* Crack_The_CodeTests.swift */,
+				28EEC18327F84FF800628C90 /* TestCorrectLetterCount.swift */,
+				28EEC18727F8514D00628C90 /* TestPlan.xctestplan */,
 			);
 			path = "Crack The CodeTests";
 			sourceTree = "<group>";
@@ -191,6 +201,7 @@
 				28E1C0EC27F0FB3C0030852C /* ContentView.swift */,
 				28E1C11527F0FFEF0030852C /* GameView.swift */,
 				28E1C11E27F106890030852C /* GameColors.swift */,
+				28A4456827F63BB900E8EAF2 /* ErrorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,9 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				28E1C13227F18FB20030852C /* WordList.swift */,
-				28E1C13427F19A850030852C /* GuessTracker.swift */,
-				28E1C13D27F1E3050030852C /* GameState.swift */,
-				28A4455927F214C300E8EAF2 /* CurrentGuess.swift */,
+				28EEC18527F8508D00628C90 /* calcCorrectLetters.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -240,6 +249,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		28EEC17E27F7896200628C90 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				28EEC17F27F7897C00628C90 /* ObservableState.swift */,
+				28EEC18127F789AF00628C90 /* State.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -256,6 +274,9 @@
 			dependencies = (
 			);
 			name = "Crack The Code";
+			packageProductDependencies = (
+				28EEC17C27F7747000628C90 /* ReSwift */,
+			);
 			productName = "Crack The Code";
 			productReference = 28E1C0E727F0FB3C0030852C /* Crack The Code.app */;
 			productType = "com.apple.product-type.application";
@@ -328,6 +349,9 @@
 				Base,
 			);
 			mainGroup = 28E1C0DE27F0FB3C0030852C;
+			packageReferences = (
+				28EEC17B27F7747000628C90 /* XCRemoteSwiftPackageReference "ReSwift" */,
+			);
 			productRefGroup = 28E1C0E827F0FB3C0030852C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -375,22 +399,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28EEC18627F8508D00628C90 /* calcCorrectLetters.swift in Sources */,
 				28E1C0ED27F0FB3C0030852C /* ContentView.swift in Sources */,
 				28E1C12727F11ADA0030852C /* ColorBoard.swift in Sources */,
 				28E1C13827F1DACE0030852C /* Log.swift in Sources */,
+				28EEC18227F789AF00628C90 /* State.swift in Sources */,
 				28E1C12527F11A8F0030852C /* ActionKey.swift in Sources */,
+				28EEC18027F7897C00628C90 /* ObservableState.swift in Sources */,
 				28E1C11627F0FFEF0030852C /* GameView.swift in Sources */,
 				28E1C11F27F106890030852C /* GameColors.swift in Sources */,
-				28A4455A27F214C300E8EAF2 /* CurrentGuess.swift in Sources */,
 				28A4455827F214A600E8EAF2 /* CurrentGuessView.swift in Sources */,
 				28E1C11B27F106470030852C /* Letter.swift in Sources */,
 				28E1C11D27F1065C0030852C /* LetterKey.swift in Sources */,
 				28E1C13C27F1DB040030852C /* StringExtension.swift in Sources */,
 				28A4456527F24E1D00E8EAF2 /* PreviousGuessesView.swift in Sources */,
 				28E1C11927F106310030852C /* Keyboard.swift in Sources */,
-				28E1C13527F19A850030852C /* GuessTracker.swift in Sources */,
+				28A4456927F63BB900E8EAF2 /* ErrorView.swift in Sources */,
 				28E1C0EB27F0FB3C0030852C /* Crack_The_CodeApp.swift in Sources */,
-				28E1C13E27F1E3050030852C /* GameState.swift in Sources */,
 				28E1C13327F18FB20030852C /* WordList.swift in Sources */,
 				28E1C13A27F1DAE70030852C /* ViewExtension.swift in Sources */,
 			);
@@ -400,6 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28EEC18427F84FF800628C90 /* TestCorrectLetterCount.swift in Sources */,
 				28E1C0FC27F0FB3F0030852C /* Crack_The_CodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -721,6 +747,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		28EEC17B27F7747000628C90 /* XCRemoteSwiftPackageReference "ReSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReSwift/ReSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		28EEC17C27F7747000628C90 /* ReSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 28EEC17B27F7747000628C90 /* XCRemoteSwiftPackageReference "ReSwift" */;
+			productName = ReSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 28E1C0DF27F0FB3C0030852C /* Project object */;
 }

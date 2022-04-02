@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "9D920FA0-045D-44A1-9D48-321A3A0F860F",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Crack The Code.xcodeproj",
+        "identifier" : "28E1C0F627F0FB3F0030852C",
+        "name" : "Crack The CodeTests"
+      }
+    }
+  ],
+  "version" : 1
+}

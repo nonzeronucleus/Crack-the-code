@@ -6,15 +6,20 @@
 //
 
 import SwiftUI
+import ReSwift
 
 @main
 struct Crack_The_CodeApp: App {
-    @State private var state = GameState()
+    @ObservedObject private var state = ObservableState(store: mainStore);
 
+    init() {
+//        let dispatch = #selector(state.dispatch as (_ action: Action) )
+        state.dispatch(startGame())
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(state)
         }
     }
 }

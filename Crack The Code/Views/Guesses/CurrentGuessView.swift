@@ -20,17 +20,13 @@ struct CurrentGuessSquareView: View {
 
 
 struct CurrentGuessView: View {
-    @ObservedObject var currentGuess:CurrentGuess
-    
-    init(currentGuess:CurrentGuess) {
-        self.currentGuess = currentGuess
-    }
-    
+    @ObservedObject private var state = ObservableState(store: mainStore);
+
     var body: some View {
-        let guess = currentGuess.guess
+        let guess = state.current.currentGuess
         
         HStack(spacing:4) {
-            ForEach(0..<currentGuess.length, id:\.self) { idx in
+            ForEach(0..<state.current.wordLength, id:\.self) { idx in
                 if (idx<guess.count) {
                     CurrentGuessSquareView(guess[idx])
                 }
@@ -43,9 +39,8 @@ struct CurrentGuessView: View {
 }
 
 struct CurrentGuessView_Previews: PreviewProvider {
-    static var currentCuess = CurrentGuess(length: 5, guess: "TEST")
     
     static var previews: some View {
-        CurrentGuessView(currentGuess: currentCuess)
+        CurrentGuessView()
     }
 }
