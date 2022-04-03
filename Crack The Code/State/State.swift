@@ -1,8 +1,12 @@
 import SwiftUI
 import ReSwift
 
-// MARK: ReSwift Example Setup
+enum LetterStatus {
+    case POSSIBLE
+    case NOT_IN_WORD
+}
 
+// MARK: - Main state
 
 struct AppState {
     var error: String? = nil
@@ -12,8 +16,10 @@ struct AppState {
     var wordLength = 5
     var maxGuesses = 10
     var gameState: GameState = .inProgress
+    var attemptedLetters:Dictionary<Character,LetterStatus> = [:]
 }
 
+// MARK: - Actions
 
 struct startGame: Action {}
 
@@ -21,6 +27,8 @@ struct addCharacter: Action {var char:Character}
 struct deleteCharacter: Action {}
 struct submitGuess: Action {}
 
+
+// MARK: - Reducers
 
 func handleStartGame(_ state:AppState) -> AppState {
     var state = state
@@ -58,7 +66,7 @@ func handleCurrentGuess(action: Action, state: AppState) -> AppState {
     }
     
     switch action {
-        // Mark: current guess
+        // MARK: current guess
     case let addChar as addCharacter:
         if (state.currentGuess.count<state.wordLength) {
             state.currentGuess.append(addChar.char)
@@ -84,6 +92,8 @@ func handleSubmit(state: AppState) -> AppState {
         return state
     }
     
+    // MARK: Check for errors
+    
     if (currentGuess.count<wordLength) {
         state.error = "Word too short"
         return state
@@ -98,8 +108,20 @@ func handleSubmit(state: AppState) -> AppState {
         state.error = "Sorry. I don't know that word"
         return state
     }
-        
+    
+    // MARK: Process genuine guess
     state.previousGuesses.append(currentGuess)
+    
+//    for idx in 0...currentGuess.count-1 {
+//        let char:Character = currentGuess[idx]
+//
+//        if (state.wordToGuess.firstIndex(of: char) != nil) {
+//            if (lett)
+//        }
+//    }
+//
+    
+    // MARK: Check to see if game is over
     
     if(currentGuess == state.wordToGuess) {
         state.gameState = .won

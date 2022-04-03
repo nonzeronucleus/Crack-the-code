@@ -15,7 +15,6 @@ struct KeyboardRow: View {
     }
     
     var body: some View {
-
         GeometryReader { geo in
             let actionButtonWidth = wideActionButtons ? geo.size.width/7 : abs((geo.size.width/maxKeysPerRow)-spacing)
             

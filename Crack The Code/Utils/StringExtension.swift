@@ -39,3 +39,34 @@ private extension String {
     index(startIndex, offsetBy: offset)
   }
 }
+
+public extension String {
+    // Returns the index of each character that matches exactly with the other string
+    // and a list of letters that are in the other string but wrong position
+    func overlap(with other:String) -> (exact:[Int], inWord:[Int]) {
+        var exact:[Int] = []
+        var inWord:[Int] = []
+        var selfLetters:[Character?] = Array(self)
+        var otherLetters:[Character?] = Array(other)
+        
+        for idx in 0...selfLetters.count-1 {
+            if(selfLetters[idx] == otherLetters[idx]) {
+                selfLetters[idx] = nil
+                otherLetters[idx] = nil
+                exact.append(idx)
+            }
+        }
+        
+        for idx in 0...self.count-1 {
+            if let letterToFind = selfLetters[idx]{
+                if let loc = otherLetters.firstIndex(of: letterToFind) {
+                    inWord.append(idx)
+                    selfLetters[idx] = nil
+                    otherLetters[loc] = nil
+                }
+            }
+        }
+
+        return (exact, inWord)
+    }
+}

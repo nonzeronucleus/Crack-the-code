@@ -1,10 +1,3 @@
-//
-//  TestCorrectLetterCount.swift
-//  Crack The CodeTests
-//
-//  Created by Ian Plumb on 02/04/2022.
-//
-
 import XCTest
 @testable import Crack_The_Code
 
