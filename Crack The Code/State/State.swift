@@ -10,6 +10,8 @@ struct AppState {
     var currentGuess = ""
     var previousGuesses:[String] = []
     var wordLength = 5
+    var maxGuesses = 10
+    var gameState: GameState = .inProgress
 }
 
 
@@ -20,27 +22,16 @@ struct deleteCharacter: Action {}
 struct submitGuess: Action {}
 
 
-
-
-func handleSubmit(state: AppState) -> AppState {
+func handleStartGame(_ state:AppState) -> AppState {
     var state = state
-    let currentGuess = state.currentGuess
-    let wordLength = state.wordLength
-    let previousGuesses = state.previousGuesses
     
-    if (currentGuess.count<wordLength) {
-        state.error = "Word too short"
-        return state
-    }
-    
-    if (previousGuesses.contains(where: {$0 == currentGuess})) {
-        state.error = "Word already guessed"
-        return state
-    }
-        
-    state.previousGuesses.append(currentGuess)
     state.currentGuess = ""
-
+    state.previousGuesses = []
+    state.wordToGuess = getWordToGuess()
+    state.gameState = .inProgress
+    
+    log(state.wordToGuess)
+    
     return state
 }
 
@@ -58,20 +49,13 @@ func getWordToGuess(maxLetters:Int = 5) -> String {
     return possibleAnswers[Int.random(in: 0..<possibleAnswers.count)]
 }
 
-func handleStartGame(_ state:AppState) -> AppState {
-    var state = state
-    
-    state.currentGuess = ""
-    state.previousGuesses = []
-    state.wordToGuess = getWordToGuess()
-    
-    log(state.wordToGuess)
-    
-    return state
-}
-
 func handleCurrentGuess(action: Action, state: AppState) -> AppState {
     var state = state
+    
+    if (state.gameState.gameOver) {
+        // Don't handle keyboard input if game is over
+        return state
+    }
     
     switch action {
         // Mark: current guess
@@ -87,6 +71,48 @@ func handleCurrentGuess(action: Action, state: AppState) -> AppState {
     
     return state
 }
+
+
+func handleSubmit(state: AppState) -> AppState {
+    var state = state
+    let currentGuess = state.currentGuess
+    let wordLength = state.wordLength
+    let previousGuesses = state.previousGuesses
+    
+    if (state.gameState.gameOver) {
+        // Don't handle keyboard input if game is over
+        return state
+    }
+    
+    if (currentGuess.count<wordLength) {
+        state.error = "Word too short"
+        return state
+    }
+    
+    if (previousGuesses.contains(where: {$0 == currentGuess})) {
+        state.error = "You've already tried that one"
+        return state
+    }
+    
+    if(!WordList.long.contains(where: {$0 == currentGuess})) {
+        state.error = "Sorry. I don't know that word"
+        return state
+    }
+        
+    state.previousGuesses.append(currentGuess)
+    
+    if(currentGuess == state.wordToGuess) {
+        state.gameState = .won
+    }
+    else if(state.previousGuesses.count >= state.maxGuesses){
+        state.gameState = .lost
+    }
+    
+    state.currentGuess = ""
+
+    return state
+}
+
 
 
 

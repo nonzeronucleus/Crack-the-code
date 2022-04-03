@@ -8,7 +8,6 @@ struct TopView: View {
         VStack {
             PreviousGuessesView()
             Spacer()
-//            CurrentGuessView(currentGuess: state.guessTracker.currentGuess)
         }
     }
 }
@@ -22,7 +21,8 @@ struct BottomView: View {
 
 
 struct GameView: View {
-    
+    @ObservedObject private var state = ObservableState(store: mainStore);
+
     var body: some View {
         let numSquares = 5
         let padding = 25.0 - Double(numSquares)
@@ -42,15 +42,15 @@ struct GameView: View {
                 Spacer()
                 BottomView()
             }
+            .font(Font.custom("AnnaiMN-Regular", size:18))
         }
         .onAppear {
 //            state.showAnimation = false
         }
-        .font(gameFont)
     }
 }
 
-let gameFont = Font.custom("AnnaiMN-Regular", size: 18)
+//36
 
 
 

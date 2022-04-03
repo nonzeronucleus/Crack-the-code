@@ -38,6 +38,10 @@
 		28EEC18227F789AF00628C90 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EEC18127F789AF00628C90 /* State.swift */; };
 		28EEC18427F84FF800628C90 /* TestCorrectLetterCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EEC18327F84FF800628C90 /* TestCorrectLetterCount.swift */; };
 		28EEC18627F8508D00628C90 /* calcCorrectLetters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EEC18527F8508D00628C90 /* calcCorrectLetters.swift */; };
+		28EEC18927F8B01400628C90 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EEC18827F8B01400628C90 /* GameState.swift */; };
+		28EEC18B27F8DEB700628C90 /* GameFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EEC18A27F8DEB700628C90 /* GameFont.swift */; };
+		28EEC18D27F8F04600628C90 /* EndGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EEC18C27F8F04600628C90 /* EndGameView.swift */; };
+		28EEC18F27F8F06D00628C90 /* GameStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EEC18E27F8F06D00628C90 /* GameStatusView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +97,10 @@
 		28EEC18327F84FF800628C90 /* TestCorrectLetterCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCorrectLetterCount.swift; sourceTree = "<group>"; };
 		28EEC18527F8508D00628C90 /* calcCorrectLetters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calcCorrectLetters.swift; sourceTree = "<group>"; };
 		28EEC18727F8514D00628C90 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
+		28EEC18827F8B01400628C90 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		28EEC18A27F8DEB700628C90 /* GameFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFont.swift; sourceTree = "<group>"; };
+		28EEC18C27F8F04600628C90 /* EndGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameView.swift; sourceTree = "<group>"; };
+		28EEC18E27F8F06D00628C90 /* GameStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatusView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +210,9 @@
 				28E1C11527F0FFEF0030852C /* GameView.swift */,
 				28E1C11E27F106890030852C /* GameColors.swift */,
 				28A4456827F63BB900E8EAF2 /* ErrorView.swift */,
+				28EEC18A27F8DEB700628C90 /* GameFont.swift */,
+				28EEC18C27F8F04600628C90 /* EndGameView.swift */,
+				28EEC18E27F8F06D00628C90 /* GameStatusView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -254,6 +265,7 @@
 			children = (
 				28EEC17F27F7897C00628C90 /* ObservableState.swift */,
 				28EEC18127F789AF00628C90 /* State.swift */,
+				28EEC18827F8B01400628C90 /* GameState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -400,11 +412,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				28EEC18627F8508D00628C90 /* calcCorrectLetters.swift in Sources */,
+				28EEC18B27F8DEB700628C90 /* GameFont.swift in Sources */,
+				28EEC18D27F8F04600628C90 /* EndGameView.swift in Sources */,
 				28E1C0ED27F0FB3C0030852C /* ContentView.swift in Sources */,
 				28E1C12727F11ADA0030852C /* ColorBoard.swift in Sources */,
 				28E1C13827F1DACE0030852C /* Log.swift in Sources */,
 				28EEC18227F789AF00628C90 /* State.swift in Sources */,
 				28E1C12527F11A8F0030852C /* ActionKey.swift in Sources */,
+				28EEC18F27F8F06D00628C90 /* GameStatusView.swift in Sources */,
 				28EEC18027F7897C00628C90 /* ObservableState.swift in Sources */,
 				28E1C11627F0FFEF0030852C /* GameView.swift in Sources */,
 				28E1C11F27F106890030852C /* GameColors.swift in Sources */,
@@ -416,6 +431,7 @@
 				28E1C11927F106310030852C /* Keyboard.swift in Sources */,
 				28A4456927F63BB900E8EAF2 /* ErrorView.swift in Sources */,
 				28E1C0EB27F0FB3C0030852C /* Crack_The_CodeApp.swift in Sources */,
+				28EEC18927F8B01400628C90 /* GameState.swift in Sources */,
 				28E1C13327F18FB20030852C /* WordList.swift in Sources */,
 				28E1C13A27F1DAE70030852C /* ViewExtension.swift in Sources */,
 			);

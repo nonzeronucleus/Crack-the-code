@@ -50,6 +50,7 @@ struct KeyboardRow: View {
 }
 
 
+
 struct Keyboard: View {
     private var keys:[String]
     private let wideActionButtons: Bool
@@ -67,7 +68,7 @@ struct Keyboard: View {
 
                     VStack {
                         Spacer()
-                        CurrentGuessView()
+                        GameStatusView()
                             .padding(.bottom,10)
                         
                         ErrorView()
