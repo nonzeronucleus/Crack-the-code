@@ -29,7 +29,7 @@ struct ColorBoard: View {
                     .frame(width:buttonWidth, height: buttonWidth, alignment:.center)
                 
                 ForEach(colors, id:\.self) { color in
-                    LetterKey(nil, onClick: {}, color:color)
+                    LetterKey(nil, color:color, onClick: {} )
                         .frame(width: buttonWidth, height: buttonWidth, alignment:.center)
                 }
                 ActionKey("⏎",

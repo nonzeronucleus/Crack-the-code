@@ -3,16 +3,15 @@ import SwiftUI
 
 struct Letter: View{
     let char: String
-    let color: Color
+    var color: Color
     var fontColor : Color = Color.primary
     var fontScale = 0.6
-    
 
     init(char: String,color: Color,fontColor : Color = Color.primary,fontScale:Double = 0.6) {
         self.char = char
-        self.color = color
         self.fontColor = fontColor
         self.fontScale = fontScale
+        self.color = color
     }
 
     init(char: String,colors:GameColors,fontScale:Double = 0.6) {
@@ -23,6 +22,7 @@ struct Letter: View{
     }
     
     var body: some View {
+            
         GeometryReader { geo in
             let width = abs(geo.size.width)
             let height = abs(geo.size.height*1.05)

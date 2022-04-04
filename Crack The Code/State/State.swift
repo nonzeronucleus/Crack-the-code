@@ -112,14 +112,27 @@ func handleSubmit(state: AppState) -> AppState {
     // MARK: Process genuine guess
     state.previousGuesses.append(currentGuess)
     
-//    for idx in 0...currentGuess.count-1 {
-//        let char:Character = currentGuess[idx]
-//
-//        if (state.wordToGuess.firstIndex(of: char) != nil) {
-//            if (lett)
-//        }
-//    }
-//
+    let overlap = currentGuess.overlap(with: state.wordToGuess)
+    
+    if ((overlap.exact.count + overlap.inWord.count) > 0) {
+        // At least one of these letters is in the target word
+        // TODO: Mark all letters that are not definitily wrong as possibly right
+        for char in currentGuess {
+            if state.attemptedLetters[char] == nil {
+                state.attemptedLetters[char] = .POSSIBLE
+            }
+        }
+        
+    }
+    else {
+        // All letters wrong
+        for char in currentGuess {
+            state.attemptedLetters[char] = .NOT_IN_WORD
+        }
+    }
+    
+    log(state.attemptedLetters)
+
     
     // MARK: Check to see if game is over
     

@@ -14,6 +14,15 @@ struct KeyboardRow: View {
         self.wideActionButtons = wideActionButtons
     }
     
+    func getColorForChar(char: Character) -> Color {
+        if let attempt = state.current.attemptedLetters[char] {
+            return (attempt == .POSSIBLE)
+            ? .orange
+            : .gray
+        }
+        return Color(UIColor.systemBackground)
+    }
+    
     var body: some View {
         GeometryReader { geo in
             let actionButtonWidth = wideActionButtons ? geo.size.width/7 : abs((geo.size.width/maxKeysPerRow)-spacing)
@@ -36,8 +45,8 @@ struct KeyboardRow: View {
                             .frame(width: actionButtonWidth, height: geo.size.height, alignment:.center)
                     default:
                         LetterKey(letterToShow,
+                                  color: getColorForChar(char: letterToShow),
                                   onClick: { state.dispatch(addCharacter(char: letterToShow))}
-//                                  onClick:{ currentGuess.append(char: letterToShow)}
                         )
                             .frame(width: abs((geo.size.width/maxKeysPerRow)-spacing), height: geo.size.height, alignment:.center)
                     }
