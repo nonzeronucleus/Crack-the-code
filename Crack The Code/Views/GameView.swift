@@ -15,13 +15,16 @@ struct TopView: View {
 
 struct BottomView: View {
     var body: some View {
-        LetterKeyboard()
+//        LetterKeyboard()
+        VStack {
+            GameStatusView()
+        }
     }
 }
 
 
 struct GameView: View {
-    @ObservedObject private var state = ObservableState(store: mainStore);
+    @EnvironmentObject private var state:ObservableState<AppState>
 
     var body: some View {
         let numSquares = 5

@@ -10,6 +10,9 @@ public class ObservableState<T>: ObservableObject  {
     // MARK: Private properties
 
     private var store: Store<T>
+    var actions:[Action] = []
+    
+    @AppStorage("state") var statsData = Data()
 
     // MARK: Lifecycle
 
@@ -27,6 +30,8 @@ public class ObservableState<T>: ObservableObject  {
     // MARK: Public methods
 
     public func dispatch(_ action: Action) {
+//        log(action)
+        actions.append(action)
         store.dispatch(action)
     }
     
@@ -35,7 +40,11 @@ public class ObservableState<T>: ObservableObject  {
             self.store.dispatch(action)
         }
     }
+    
+    
 }
+
+
 
 extension ObservableState: StoreSubscriber {
 

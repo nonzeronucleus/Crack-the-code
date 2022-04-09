@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct EndGameView: View {
-    @ObservedObject private var state = ObservableState(store: mainStore);
+    @EnvironmentObject private var state:ObservableState<AppState>
 
     var body: some View {
-        state.current.gameState == .won
-            ? Text("Well done")
-            : Text("Sorry. You Lost. The word was "+state.current.wordToGuess)
+        VStack {
+            state.current.gameState == .won
+                ? Text("Well done")
+                : Text("Sorry. You Lost. The word was "+state.current.wordToGuess)
+            
+            NewGameButton()
+            
+            Spacer()
+        }
     }
 }
 

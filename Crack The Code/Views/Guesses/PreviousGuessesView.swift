@@ -80,7 +80,7 @@ fileprivate struct PreviousGuessesViewImpl: View {
 
 
 struct PreviousGuessesView: View {
-    @ObservedObject private var state = ObservableState(store: mainStore);
+    @EnvironmentObject private var state:ObservableState<AppState>
 
     var body: some View {
         GeometryReader { geo in

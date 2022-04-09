@@ -1,21 +1,29 @@
 import SwiftUI
+import ReSwift
+
 
 let maxKeysPerRow = 10.0
 
-struct KeyboardRow: View {
-    @ObservedObject private var state = ObservableState(store: mainStore);
-
-    let spacing = 2.0
+fileprivate struct KeyboardRow: View {
+    private let spacing = 2.0
     private var letters:[Character]
     private let wideActionButtons: Bool
-    
-    init(_ letters:String, wideActionButtons:Bool){
+    private let attemptedLetters:AttemptedLetters
+    private let controller:KeyboardController
+
+    init(_ letters:String,
+         attemptedLetters:AttemptedLetters,
+         controller:KeyboardController,
+         wideActionButtons:Bool
+    ){
         self.letters = [Character](letters)
+        self.attemptedLetters = attemptedLetters
         self.wideActionButtons = wideActionButtons
+        self.controller = controller
     }
     
     func getColorForChar(char: Character) -> Color {
-        if let attempt = state.current.attemptedLetters[char] {
+        if let attempt = attemptedLetters.getStatus(char) {
             return (attempt == .POSSIBLE)
             ? .orange
             : .gray
@@ -35,18 +43,18 @@ struct KeyboardRow: View {
                     switch(letter) {
                     case "⌫":
                         ActionKey("⌫",
-                                  onClick: {state.dispatch(deleteCharacter())},
+                                  onClick: {controller.deleteChar() },        //{state.dispatch(deleteCharacter())},
                                   fontScale:0.6)
                             .frame(width:actionButtonWidth, height: geo.size.height, alignment:.center)
                     case "⏎":
                         ActionKey("⏎",
-                                  onClick: {state.dispatch(submitGuess())},
+                                  onClick: {controller.submit()},
                                   fontScale:0.5)
                             .frame(width: actionButtonWidth, height: geo.size.height, alignment:.center)
                     default:
                         LetterKey(letterToShow,
                                   color: getColorForChar(char: letterToShow),
-                                  onClick: { state.dispatch(addCharacter(char: letterToShow))}
+                                  onClick: {controller.addChar(letterToShow)}
                         )
                             .frame(width: abs((geo.size.width/maxKeysPerRow)-spacing), height: geo.size.height, alignment:.center)
                     }
@@ -59,13 +67,19 @@ struct KeyboardRow: View {
 
 
 
-struct Keyboard: View {
+
+fileprivate struct Keyboard: View {
+    private let controller:KeyboardController
+    private let attemptedLetters:AttemptedLetters
+
     private var keys:[String]
     private let wideActionButtons: Bool
     
-    init(keys:[String], wideActionButtons: Bool = true) {
+    init(keys:[String], attemptedLetters:AttemptedLetters, controller:KeyboardController, wideActionButtons: Bool = true) {
         self.keys = keys
         self.wideActionButtons = wideActionButtons
+        self.controller = controller
+        self.attemptedLetters = attemptedLetters
     }
     
     var body: some View {
@@ -73,17 +87,21 @@ struct Keyboard: View {
             Spacer(minLength: 0)
             GeometryReader { geo in
                 let keyHeight = geo.size.width/maxKeysPerRow
-
                     VStack {
                         Spacer()
-                        GameStatusView()
+//                        DebugButton()
+                        CurrentGuessView()
                             .padding(.bottom,10)
                         
                         ErrorView()
                             .padding(.bottom,10)
 
                         ForEach(keys, id:\.self) { letterRow in
-                            KeyboardRow(letterRow, wideActionButtons: wideActionButtons) //, state:state)
+                            KeyboardRow(letterRow,
+                                        attemptedLetters: attemptedLetters,
+                                        controller: controller,
+                                        wideActionButtons: wideActionButtons
+                            ) 
                                 .frame(width: geo.size.width, height: keyHeight, alignment:
                                             .center)
                     }
@@ -95,41 +113,115 @@ struct Keyboard: View {
         }
         .padding(6)
     }
-
 }
 
-struct NumberPad: View {
+
+fileprivate struct NumberPadImpl: View {
     private var numbers = [
         "123",
         "456",
         "789",
         "⌫0⏎"
     ]
+    
+    
+    private let controller:KeyboardController
+    private let attemptedLetters:AttemptedLetters
 
+    init(attemptedLetters:AttemptedLetters, controller:KeyboardController) {
+        self.controller = controller
+        self.attemptedLetters = attemptedLetters
+    }
+    
     var body: some View {
-        Keyboard(keys: numbers, wideActionButtons: false)
+        Keyboard(keys: numbers, attemptedLetters: attemptedLetters, controller: controller, wideActionButtons: false)
     }
 }
 
-struct LetterKeyboard: View {
+fileprivate struct LetterKeyboardImpl: View {
     private var letters = [
         "QWERTYUIOP",
         "ASDFGHJKL",
         "⌫ZXCVBNM⏎"
     ]
     
+    private let controller:KeyboardController
+    private let attemptedLetters:AttemptedLetters
+
+    init(attemptedLetters:AttemptedLetters, controller:KeyboardController) {
+        self.controller = controller
+        self.attemptedLetters = attemptedLetters
+    }
+    
     var body: some View {
-        Keyboard(keys: letters)
+        Keyboard(keys: letters, attemptedLetters: attemptedLetters, controller: controller)
+    }
+}
+
+protocol KeyboardController {
+    
+    func addChar(_ char:Character)
+    
+    func deleteChar()
+    
+    func submit()
+}
+
+fileprivate class GameKeyboardController: KeyboardController {
+    private let state:ObservableState<AppState>
+    
+    init(state:ObservableState<AppState>) {
+        self.state = state
+    }
+
+    func addChar(_ char:Character) {
+        state.dispatch(addCharacter(char: char))
+    }
+    
+    func deleteChar() {
+        state.dispatch(deleteCharacter())
+    }
+    
+    func submit() {
+        state.dispatch(submitGuess())
+    }
+}
+
+fileprivate class TestKeyboardController: KeyboardController {
+    func addChar(_ char:Character) {
+    }
+    
+    func deleteChar() {
+    }
+    
+    func submit() {
     }
 }
 
 
+struct LetterKeyboard: View {
+    @EnvironmentObject private var state:ObservableState<AppState>
+
+    private let controller:KeyboardController
+    
+    init() {
+        let state =  ObservableState(store: mainStore)
+//        self.state = state
+        self.controller = GameKeyboardController(state: state)
+    }
+    
+    var body: some View {
+        LetterKeyboardImpl(attemptedLetters: state.current.attemptedLetters, controller: controller)
+    }
+}
+
 
 struct Keyboard_Previews: PreviewProvider {
+    static let attemptedLetters = AttemptedLetters(attempts: ["A":.POSSIBLE, "B":.NOT_IN_WORD] )
+    static let attemptedNumbers = AttemptedLetters(attempts: ["1":.POSSIBLE, "2":.NOT_IN_WORD] )
+
     static var previews: some View {
-        VStack {
-            NumberPad()
-            LetterKeyboard()
-        }
+        NumberPadImpl(attemptedLetters: attemptedNumbers, controller: TestKeyboardController())
+        LetterKeyboardImpl(attemptedLetters: attemptedLetters, controller: TestKeyboardController())
     }
 }

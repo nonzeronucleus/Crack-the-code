@@ -8,13 +8,8 @@
 import SwiftUI
 
 struct ErrorView: View {
-    @ObservedObject private var state = ObservableState(store: mainStore);
-//    @ObservedObject var error: ErrorTracker
-    
-//    init(_ error:ErrorTracker) {
-//        self.error = error
-//    }
-//
+    @EnvironmentObject private var state:ObservableState<AppState>
+
     var body: some View {
         VStack {
             if let msg = state.current.error {

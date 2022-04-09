@@ -20,7 +20,7 @@ struct CurrentGuessSquareView: View {
 
 
 struct CurrentGuessView: View {
-    @ObservedObject private var state = ObservableState(store: mainStore);
+    @EnvironmentObject private var state:ObservableState<AppState>
 
     var body: some View {
         let guess = state.current.currentGuess

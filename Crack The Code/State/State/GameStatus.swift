@@ -1,6 +1,7 @@
 import Foundation
 
-enum GameState:String {
+enum GameStatus:String, Codable {
+    case notStarded = "S"
     case inProgress = "In progress"
     case won = "Won"
     case lost = "Lost"
@@ -13,10 +14,4 @@ enum GameState:String {
             return (self == .won || self == .lost)
         }
     }
-    
-//    var stillPlaying:Bool {
-//        get {
-//            return (self == .inProgress || self == .extraGo)
-//        }
-//    }
 }

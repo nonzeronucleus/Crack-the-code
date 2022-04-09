@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct GameStatusView: View {
-    @ObservedObject private var state = ObservableState(store: mainStore);
+    @EnvironmentObject private var state:ObservableState<AppState>
 
     var body: some View {
         state.current.gameState.gameOver
             ? AnyView(EndGameView())
-            : AnyView(CurrentGuessView())
+            : AnyView(LetterKeyboard())
     }
 }
 

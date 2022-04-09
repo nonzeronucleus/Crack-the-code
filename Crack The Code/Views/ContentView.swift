@@ -9,8 +9,52 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        GameView()
-    }
+        NavigationView {
+            VStack {
+                HStack {
+                    Text("Crack The Code")
+                        .font(Font.custom("SFUIDisplay-Light", size: 21))
+
+                    Spacer()
+                    NavigationLink(destination: DebugView( )) {
+                        Image(systemName: "ant.circle")
+                            .foregroundColor(.primary)
+                            .font(Font.custom("SFUIDisplay-Light", size: 21))
+                    }
+                    
+                    NavigationLink(destination: StatsView( )) {
+                        Image(systemName: "chart.bar.fill")
+                            .foregroundColor(.primary)
+                            .font(Font.custom("SFUIDisplay-Light", size: 21))
+                    }
+                    
+                    NavigationLink(destination: InfoView()) { //InfoView
+                        Image(systemName: "info.circle")
+                            .foregroundColor(.primary)
+                            .font(Font.custom("SFUIDisplay-Light", size: 21))
+                    }
+
+//                    NavigationLink(destination: GameView()) { //OptionView
+//                        Image(systemName: "gear")
+//                            .font(Font.custom("SFUIDisplay-Light", size: 21))
+//                    }
+                    .buttonStyle(.plain)
+                    .navigationBarHidden(true)
+                    .navigationBarBackButtonHidden(true)
+                    .navigationBarTitle("Title", displayMode: .inline)
+                }
+                .font(.largeTitle)
+                .navigationTitle("Back")
+                .padding()
+
+
+
+                GameView()
+                    .navigationBarHidden(true)
+            }
+        }.navigationBarTitle(Text("ContentView"))
+           .navigationViewStyle(StackNavigationViewStyle() )
+    }//        GameView()
 }
 
 struct ContentView_Previews: PreviewProvider {
