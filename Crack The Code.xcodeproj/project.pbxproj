@@ -50,7 +50,7 @@
 		28EEC19D27FE2B8F00628C90 /* StatRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EEC19C27FE2B8F00628C90 /* StatRow.swift */; };
 		28EEC19F27FE2F7300628C90 /* handleSubmit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EEC19E27FE2F7300628C90 /* handleSubmit.swift */; };
 		28EEC1A127FE392100628C90 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EEC1A027FE392100628C90 /* InfoView.swift */; };
-		28EEC1A4280174D200628C90 /* StartGame2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EEC1A3280174D200628C90 /* StartGame2.swift */; };
+		28EEC1A4280174D200628C90 /* startGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EEC1A3280174D200628C90 /* startGame.swift */; };
 		28EEC1A62801750200628C90 /* addCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EEC1A52801750200628C90 /* addCharacter.swift */; };
 		28EEC1A82801750F00628C90 /* deleteCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EEC1A72801750E00628C90 /* deleteCharacter.swift */; };
 		28EEC1AA2801751F00628C90 /* submitGuess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EEC1A92801751F00628C90 /* submitGuess.swift */; };
@@ -137,7 +137,7 @@
 		28EEC19C27FE2B8F00628C90 /* StatRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatRow.swift; sourceTree = "<group>"; };
 		28EEC19E27FE2F7300628C90 /* handleSubmit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = handleSubmit.swift; sourceTree = "<group>"; };
 		28EEC1A027FE392100628C90 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
-		28EEC1A3280174D200628C90 /* StartGame2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGame2.swift; sourceTree = "<group>"; };
+		28EEC1A3280174D200628C90 /* startGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = startGame.swift; sourceTree = "<group>"; };
 		28EEC1A52801750200628C90 /* addCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addCharacter.swift; sourceTree = "<group>"; };
 		28EEC1A72801750E00628C90 /* deleteCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deleteCharacter.swift; sourceTree = "<group>"; };
 		28EEC1A92801751F00628C90 /* submitGuess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = submitGuess.swift; sourceTree = "<group>"; };
@@ -357,7 +357,7 @@
 		28EEC1A22801749100628C90 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				28EEC1A3280174D200628C90 /* StartGame2.swift */,
+				28EEC1A3280174D200628C90 /* startGame.swift */,
 				28EEC1A52801750200628C90 /* addCharacter.swift */,
 				28EEC1A72801750E00628C90 /* deleteCharacter.swift */,
 				28EEC1A92801751F00628C90 /* submitGuess.swift */,
@@ -581,7 +581,7 @@
 				28E1C11627F0FFEF0030852C /* GameView.swift in Sources */,
 				28E1C11F27F106890030852C /* GameColors.swift in Sources */,
 				28A4455827F214A600E8EAF2 /* CurrentGuessView.swift in Sources */,
-				28EEC1A4280174D200628C90 /* StartGame2.swift in Sources */,
+				28EEC1A4280174D200628C90 /* startGame.swift in Sources */,
 				28E1C11B27F106470030852C /* Letter.swift in Sources */,
 				28E1C11D27F1065C0030852C /* LetterKey.swift in Sources */,
 				28E1C13C27F1DB040030852C /* StringExtension.swift in Sources */,
