@@ -28,9 +28,11 @@ fileprivate struct Row: View {
 
 fileprivate struct Header: View {
     var wordLength: Int
+    var maxGuesses: Int
+    var currentGuesses: Int
     
     var body: some View {
-        Row(word: "GUESS",
+        Row(word: "GUESS "+String(currentGuesses)+" of "+String(maxGuesses),
             rightPlace: "✓",
             wrongPlace: "?",
             wordLength: wordLength)
@@ -66,10 +68,12 @@ fileprivate struct PreviousGuessesViewImpl: View {
     var prevGuesses:[String]
     var wordToGuess:String
     var wordLength:Int
+    var maxGuesses: Int
+    var currentGuesses: Int
 
     var body: some View {
         VStack {
-            Header(wordLength: wordLength)
+            Header(wordLength: wordLength, maxGuesses: maxGuesses, currentGuesses:currentGuesses)
                 .padding()
             ForEach(prevGuesses , id:\.self) { guess in
                 GuessRow(wordToGuess:wordToGuess, guess:guess, wordLength:wordLength)
@@ -88,7 +92,9 @@ struct PreviousGuessesView: View {
                 PreviousGuessesViewImpl(
                     prevGuesses:state.current.previousGuesses,
                     wordToGuess: state.current.wordToGuess,
-                    wordLength: state.current.wordLength
+                    wordLength: state.current.wordLength,
+                    maxGuesses: state.current.maxGuesses,
+                    currentGuesses: state.current.previousGuesses.count
                 )
             }
             .font(guessFont(size: geo.size, maxGuesses:state.current.maxGuesses))
@@ -107,7 +113,9 @@ struct PreviousGuessesView_Previews: PreviewProvider {
         PreviousGuessesViewImpl(
             prevGuesses: ["GUESS","WORDS","THING", "SSSSS"],
             wordToGuess: "SWEAR",
-            wordLength: 5
+            wordLength: 5,
+            maxGuesses: 12,
+            currentGuesses: 4
         )
         .font(Font.custom("AnnaiMN-Regular", size: 18))
     }

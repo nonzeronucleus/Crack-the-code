@@ -89,10 +89,9 @@ fileprivate struct Keyboard: View {
                 let keyHeight = geo.size.width/maxKeysPerRow
                     VStack {
                         Spacer()
-//                        DebugButton()
                         CurrentGuessView()
                             .padding(.bottom,10)
-                        
+
                         ErrorView()
                             .padding(.bottom,10)
 
@@ -101,7 +100,7 @@ fileprivate struct Keyboard: View {
                                         attemptedLetters: attemptedLetters,
                                         controller: controller,
                                         wideActionButtons: wideActionButtons
-                            ) 
+                            )
                                 .frame(width: geo.size.width, height: keyHeight, alignment:
                                             .center)
                     }
@@ -202,16 +201,8 @@ fileprivate class TestKeyboardController: KeyboardController {
 struct LetterKeyboard: View {
     @EnvironmentObject private var state:ObservableState<AppState>
 
-    private let controller:KeyboardController
-    
-    init() {
-        let state =  ObservableState(store: mainStore)
-//        self.state = state
-        self.controller = GameKeyboardController(state: state)
-    }
-    
     var body: some View {
-        LetterKeyboardImpl(attemptedLetters: state.current.attemptedLetters, controller: controller)
+        LetterKeyboardImpl(attemptedLetters: state.current.attemptedLetters, controller: GameKeyboardController(state: state))
     }
 }
 
@@ -222,6 +213,9 @@ struct Keyboard_Previews: PreviewProvider {
 
     static var previews: some View {
         NumberPadImpl(attemptedLetters: attemptedNumbers, controller: TestKeyboardController())
+            .environmentObject( ObservableState(store: mainStore))
+
         LetterKeyboardImpl(attemptedLetters: attemptedLetters, controller: TestKeyboardController())
+            .environmentObject( ObservableState(store: mainStore))
     }
 }

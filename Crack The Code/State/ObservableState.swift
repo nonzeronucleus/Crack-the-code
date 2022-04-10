@@ -1,6 +1,12 @@
 import SwiftUI
 import ReSwift
 
+struct ActionHistory<T> {
+    let action:Action
+    let initState:T
+}
+
+
 public class ObservableState<T>: ObservableObject  {
 
     // MARK: Public properties
@@ -10,7 +16,7 @@ public class ObservableState<T>: ObservableObject  {
     // MARK: Private properties
 
     private var store: Store<T>
-    var actions:[Action] = []
+    var actions:[ActionHistory<T>] = []
     
     @AppStorage("state") var statsData = Data()
 
@@ -30,8 +36,9 @@ public class ObservableState<T>: ObservableObject  {
     // MARK: Public methods
 
     public func dispatch(_ action: Action) {
+//        var x = ActionHistory(action: action, initState: current)
 //        log(action)
-        actions.append(action)
+        actions.append(ActionHistory(action: action, initState: current))
         store.dispatch(action)
     }
     

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DebugButton: View {
-    @EnvironmentObject private var state:ObservableState<AppState>
+//    @EnvironmentObject private var state:ObservableState<AppState>
 
     var body: some View {
         Button {
@@ -24,17 +24,17 @@ struct DebugButton: View {
 //            state.dispatch(addCharacter(char: "N"))
 //            state.dispatch(addCharacter(char: "T"))
 //            state.dispatch(submitGuess())
-            state.dispatch(addCharacter(char: "S"))
-            state.dispatch(addCharacter(char: "T"))
-            state.dispatch(addCharacter(char: "A"))
-            state.dispatch(addCharacter(char: "V"))
-            state.dispatch(addCharacter(char: "E"))
-            state.dispatch(submitGuess())
-            state.dispatch(addCharacter(char: "R"))
-            state.dispatch(addCharacter(char: "A"))
-            state.dispatch(addCharacter(char: "V"))
-            state.dispatch(addCharacter(char: "E"))
-            state.dispatch(addCharacter(char: "R"))
+//            state.dispatch(addCharacter(char: "S"))
+//            state.dispatch(addCharacter(char: "T"))
+//            state.dispatch(addCharacter(char: "A"))
+//            state.dispatch(addCharacter(char: "V"))
+//            state.dispatch(addCharacter(char: "E"))
+//            state.dispatch(submitGuess())
+//            state.dispatch(addCharacter(char: "R"))
+//            state.dispatch(addCharacter(char: "A"))
+//            state.dispatch(addCharacter(char: "V"))
+//            state.dispatch(addCharacter(char: "E"))
+//            state.dispatch(addCharacter(char: "R"))
 //            state.dispatch(submitGuess())
         } label: {
             Text("Debug")

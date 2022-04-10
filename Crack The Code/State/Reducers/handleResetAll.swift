@@ -1,5 +1,5 @@
 import ReSwift
 
 func handleResetAll() -> AppState {
-    return AppState()
+    return handleStartGame(AppState())
 }

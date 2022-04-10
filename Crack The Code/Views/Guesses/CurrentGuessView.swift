@@ -18,15 +18,14 @@ struct CurrentGuessSquareView: View {
     }
 }
 
-
-struct CurrentGuessView: View {
-    @EnvironmentObject private var state:ObservableState<AppState>
-
+struct CurrentGuessViewImpl: View {
+    var guess:String
+    var wordLength:Int
+    
     var body: some View {
-        let guess = state.current.currentGuess
         
         HStack(spacing:4) {
-            ForEach(0..<state.current.wordLength, id:\.self) { idx in
+            ForEach(0..<wordLength, id:\.self) { idx in
                 if (idx<guess.count) {
                     CurrentGuessSquareView(guess[idx])
                 }
@@ -38,9 +37,19 @@ struct CurrentGuessView: View {
     }
 }
 
+struct CurrentGuessView: View {
+    @EnvironmentObject private var state:ObservableState<AppState>
+
+    var body: some View {
+        let guess = state.current.currentGuess
+        
+        CurrentGuessViewImpl(guess: guess, wordLength: state.current.wordLength)
+    }
+}
+
 struct CurrentGuessView_Previews: PreviewProvider {
     
     static var previews: some View {
-        CurrentGuessView()
+        CurrentGuessViewImpl(guess: "WORD", wordLength: 5)
     }
 }
