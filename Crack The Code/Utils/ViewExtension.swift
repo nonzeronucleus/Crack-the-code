@@ -8,26 +8,4 @@ extension View {
             self
         }
     }
-    
-//    func foregroundColor(_ color: GameColors) -> some View {
-//            return self.foregroundColor(color.foregroundColor)
-//    }
-
-    func colors(_ color: GameColors) -> some View {
-            return modifier(GameColorView(color: color))
-    }
-}
-
-
-//func watermarked(with text: String) -> some View {
-//    modifier(Watermark(text: text))
-//}
-
-
-struct GameColorView: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-    }
-    
-    var color: GameColors
 }
