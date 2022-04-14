@@ -68,7 +68,7 @@ fileprivate struct KeyboardRow: View {
 
 
 
-fileprivate struct Keyboard: View {
+fileprivate struct SharedKeyboard: View {
     private let controller:KeyboardController
     private let attemptedLetters:AttemptedLetters
 
@@ -90,10 +90,10 @@ fileprivate struct Keyboard: View {
                     VStack {
                         Spacer()
                         CurrentGuessView()
-                            .padding(.bottom,10)
+                            .padding(.bottom,2)
 
                         ErrorView()
-                            .padding(.bottom,10)
+                            .padding(.bottom,2)
 
                         ForEach(keys, id:\.self) { letterRow in
                             KeyboardRow(letterRow,
@@ -133,7 +133,7 @@ fileprivate struct NumberPadImpl: View {
     }
     
     var body: some View {
-        Keyboard(keys: numbers, attemptedLetters: attemptedLetters, controller: controller, wideActionButtons: false)
+        SharedKeyboard(keys: numbers, attemptedLetters: attemptedLetters, controller: controller, wideActionButtons: false)
     }
 }
 
@@ -153,7 +153,7 @@ fileprivate struct LetterKeyboardImpl: View {
     }
     
     var body: some View {
-        Keyboard(keys: letters, attemptedLetters: attemptedLetters, controller: controller)
+        SharedKeyboard(keys: letters, attemptedLetters: attemptedLetters, controller: controller)
     }
 }
 
@@ -206,6 +206,26 @@ struct LetterKeyboard: View {
     }
 }
 
+struct NumberPad: View {
+    @EnvironmentObject private var state:ObservableState<AppState>
+
+    var body: some View {
+        NumberPadImpl(attemptedLetters: state.current.attemptedLetters, controller: GameKeyboardController(state: state))
+    }
+}
+
+
+
+struct Keyboard: View {
+    @EnvironmentObject private var state:ObservableState<AppState>
+
+    var body: some View {
+        state.current.currentGameMode == .letters
+            ? AnyView(LetterKeyboard())
+            : AnyView(NumberPad())
+    }
+}
+
 
 struct Keyboard_Previews: PreviewProvider {
     static let attemptedLetters = AttemptedLetters(attempts: ["A":.POSSIBLE, "B":.NOT_IN_WORD] )
@@ -213,9 +233,9 @@ struct Keyboard_Previews: PreviewProvider {
 
     static var previews: some View {
         NumberPadImpl(attemptedLetters: attemptedNumbers, controller: TestKeyboardController())
-            .environmentObject( ObservableState(store: mainStore))
+            .environmentObject( createStore())
 
         LetterKeyboardImpl(attemptedLetters: attemptedLetters, controller: TestKeyboardController())
-            .environmentObject( ObservableState(store: mainStore))
+            .environmentObject( createStore()) 
     }
 }

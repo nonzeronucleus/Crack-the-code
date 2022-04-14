@@ -10,8 +10,7 @@ func handleStartGame(action:StartGameAction, state:AppState) -> AppState {
     
     state.wordToGuess = action.wordToGuess
     state.gameState = .inProgress
-    
-    log(state.wordToGuess)
+    state.currentGameMode = action.mode
     
     return state
 }

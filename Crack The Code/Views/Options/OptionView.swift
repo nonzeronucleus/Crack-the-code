@@ -8,13 +8,27 @@
 import SwiftUI
 
 struct OptionView: View {
+    @EnvironmentObject private var state:ObservableState<AppState>
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Button {
+                state.dispatch(SetGameModeAction(mode: .letters))
+            } label: {
+                Text("Letter Mode")
+            }
+            Button {
+                state.dispatch(SetGameModeAction(mode: .numbers))
+            } label: {
+                Text("Number Mode")
+            }
+        }
     }
 }
 
 struct OptionView_Previews: PreviewProvider {
     static var previews: some View {
         OptionView()
+            .environmentObject( createStore()) //ObservableState(store: mainStore))
     }
 }

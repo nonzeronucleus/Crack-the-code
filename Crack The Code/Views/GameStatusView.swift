@@ -13,7 +13,7 @@ struct GameStatusView: View {
     var body: some View {
         state.current.gameState.gameOver
             ? AnyView(EndGameView())
-            : AnyView(LetterKeyboard())
+            : AnyView(Keyboard())
     }
 }
 

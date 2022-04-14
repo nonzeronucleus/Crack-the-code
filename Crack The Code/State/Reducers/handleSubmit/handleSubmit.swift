@@ -5,6 +5,7 @@ fileprivate func checkForErrors(state: AppState) -> String? {
     let currentGuess = state.currentGuess
     let wordLength = state.wordLength
     let previousGuesses = state.previousGuesses
+    let mode = state.currentGameMode
     
     if (currentGuess.count<wordLength) {
         return "Word too short"
@@ -14,7 +15,8 @@ fileprivate func checkForErrors(state: AppState) -> String? {
         return "You've already tried that one"
     }
     
-    if(!WordList.long.contains(where: {$0 == currentGuess})) {
+    
+    if(mode == .letters && !WordList.long.contains(where: {$0 == currentGuess})) {
         return "Sorry. I don't know that word"
     }
     

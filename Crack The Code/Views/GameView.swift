@@ -60,7 +60,7 @@ struct GameView: View {
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
         GameView()
-            .environmentObject( ObservableState(store: mainStore))
+            .environmentObject( createStore()) //ObservableState(store: mainStore))
             .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
     }
 }

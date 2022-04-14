@@ -24,6 +24,9 @@ func reducer(action: Action, state: AppState?) -> AppState {
     case _ as SubmitGuessAction:
         state = handleSubmit(state: state)
         
+    case let setGameMode as SetGameModeAction:
+        state = handleSetGameMode(state: state, action: setGameMode)
+        
     default:
         break
     }

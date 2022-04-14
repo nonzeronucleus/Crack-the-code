@@ -10,41 +10,51 @@ import ReSwift
 
 @main
 struct Crack_The_CodeApp: App {
-    @ObservedObject private var state = ObservableState(store: mainStore);
+    @ObservedObject private var store:ObservableState<AppState>  //ObservableState(store: mainStore);
     private var stateStorer:StoreStorer
 
     init() {
-        stateStorer =  StoreStorer()
-        
-        let loadedState = stateStorer.state
+        let store = createStore()
 
-        mainStore.subscribe(stateStorer)
+        stateStorer =  StoreStorer(store)
 
-        state.dispatch(LoadStateAction(state:loadedState))
-        
-        if(loadedState.gameState == .notStarded) {
-            state.dispatch(triggerGameStart(wordLength: state.current.wordLength))
-        }
+        self.store = store
     }
     
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(state)
+                .environmentObject(store)
         }
     }
 }
 
 class StoreStorer : StoreSubscriber {
     @AppStorage("statsData1") var statsData = Data()
+    let store:ObservableState<AppState>
+    
+    init(_ store:ObservableState<AppState>) {
+        self.store = store
+
+        store.dispatch(LoadStateAction(state:state))
+        
+        store.subscribe(self)
+        
+        if(state.gameState == .notStarded) {
+            store.dispatch(createStartGameAction(state:store.current))
+        }
+
+    }
+    
+    deinit {
+        store.unsubscribe(self)
+    }
     
     var state:AppState  {
         get {
             do {
-//                let state = AppState()
                 let state = try JSONDecoder().decode(AppState.self, from: statsData)
-//
                 return state
             } catch {
                 log(error)
@@ -58,8 +68,6 @@ class StoreStorer : StoreSubscriber {
             return
         }
         self.statsData = stateData
-//        log(state)
-//        log(state.attemptedLetters.toString())
     }
     
     typealias StoreSubscriberStateType = AppState

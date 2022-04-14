@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2871B2F32807664900C129A9 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2871B2F22807664900C129A9 /* OptionView.swift */; };
+		2883C71828089A1900874304 /* SetGameModeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2883C71728089A1900874304 /* SetGameModeAction.swift */; };
+		2883C71A2808A2A000874304 /* handleSetGameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2883C7192808A2A000874304 /* handleSetGameMode.swift */; };
 		28A4455827F214A600E8EAF2 /* CurrentGuessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A4455727F214A600E8EAF2 /* CurrentGuessView.swift */; };
 		28A4455F27F2412B00E8EAF2 /* AnnaiMN.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28A4455E27F2412B00E8EAF2 /* AnnaiMN.ttf */; };
 		28A4456527F24E1D00E8EAF2 /* PreviousGuessesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A4456427F24E1D00E8EAF2 /* PreviousGuessesView.swift */; };
@@ -92,6 +94,8 @@
 
 /* Begin PBXFileReference section */
 		2871B2F22807664900C129A9 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
+		2883C71728089A1900874304 /* SetGameModeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameModeAction.swift; sourceTree = "<group>"; };
+		2883C7192808A2A000874304 /* handleSetGameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = handleSetGameMode.swift; sourceTree = "<group>"; };
 		28A4455727F214A600E8EAF2 /* CurrentGuessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentGuessView.swift; sourceTree = "<group>"; };
 		28A4455D27F23EFB00E8EAF2 /* Crack-The-Code-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Crack-The-Code-Info.plist"; sourceTree = SOURCE_ROOT; };
 		28A4455E27F2412B00E8EAF2 /* AnnaiMN.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AnnaiMN.ttf; sourceTree = "<group>"; };
@@ -374,6 +378,7 @@
 				28EEC1A92801751F00628C90 /* SubmitGuessAction.swift */,
 				28EEC1AB2801757E00628C90 /* LoadStateAction.swift */,
 				28EEC1CD2801D9EC00628C90 /* ResetAllAction.swift */,
+				2883C71728089A1900874304 /* SetGameModeAction.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -387,6 +392,7 @@
 				28EEC1B42801778600628C90 /* handleCurrentGuess.swift */,
 				28EEC1BF280179B600628C90 /* handleLoadState.swift */,
 				28EEC1CF2801DA0A00628C90 /* handleResetAll.swift */,
+				2883C7192808A2A000874304 /* handleSetGameMode.swift */,
 			);
 			path = Reducers;
 			sourceTree = "<group>";
@@ -588,6 +594,7 @@
 				28EEC18F27F8F06D00628C90 /* GameStatusView.swift in Sources */,
 				28EEC1BC280178A900628C90 /* LetterStatus.swift in Sources */,
 				28EEC19227FCF30B00628C90 /* ButtonStyle.swift in Sources */,
+				2883C71A2808A2A000874304 /* handleSetGameMode.swift in Sources */,
 				28EEC18027F7897C00628C90 /* ObservableState.swift in Sources */,
 				28E1C11627F0FFEF0030852C /* GameView.swift in Sources */,
 				28E1C11F27F106890030852C /* GameColors.swift in Sources */,
@@ -601,6 +608,7 @@
 				28EEC1A82801750F00628C90 /* DeleteCharacterAction.swift in Sources */,
 				28EEC19B27FE2B6D00628C90 /* GuessLengthView.swift in Sources */,
 				28EEC1C728019BA800628C90 /* markAttemptedLetters.swift in Sources */,
+				2883C71828089A1900874304 /* SetGameModeAction.swift in Sources */,
 				28E1C11927F106310030852C /* Keyboard.swift in Sources */,
 				2871B2F32807664900C129A9 /* OptionView.swift in Sources */,
 				28A4456927F63BB900E8EAF2 /* ErrorView.swift in Sources */,

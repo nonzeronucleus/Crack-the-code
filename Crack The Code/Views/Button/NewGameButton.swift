@@ -21,7 +21,7 @@ struct NewGameButton: View {
 
     var body: some View {
         NewGameButtonImpl(action: {
-            state.dispatch(triggerGameStart(wordLength: state.current.wordLength))
+            state.dispatch(createStartGameAction(state:state.current))
         })
     }
 }

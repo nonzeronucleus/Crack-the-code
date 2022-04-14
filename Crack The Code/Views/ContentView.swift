@@ -54,12 +54,22 @@ struct ContentView: View {
             }
         }.navigationBarTitle(Text("ContentView"))
            .navigationViewStyle(StackNavigationViewStyle() )
-    }//        GameView()
+    }
 }
 
+
+//func numericState() -> AppState {
+//    var state = AppState()
+//    
+//    return state
+//}
+//
+//
 struct ContentView_Previews: PreviewProvider {
+    
+    
     static var previews: some View {
         ContentView()
-            .environmentObject( ObservableState(store: mainStore))
+            .environmentObject( createStore()) //ObservableState(store: mainStore))
     }
 }

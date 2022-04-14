@@ -15,11 +15,10 @@ public class ObservableState<T>: ObservableObject  {
 
     // MARK: Private properties
 
+//    private
     private var store: Store<T>
     var actions:[ActionHistory<T>] = []
     
-    @AppStorage("state") var statsData = Data()
-
     // MARK: Lifecycle
 
     public init(store: Store<T>) {
@@ -36,8 +35,6 @@ public class ObservableState<T>: ObservableObject  {
     // MARK: Public methods
 
     public func dispatch(_ action: Action) {
-//        var x = ActionHistory(action: action, initState: current)
-//        log(action)
         actions.append(ActionHistory(action: action, initState: current))
         store.dispatch(action)
     }
@@ -47,8 +44,16 @@ public class ObservableState<T>: ObservableObject  {
             self.store.dispatch(action)
         }
     }
+    open func subscribe<S: StoreSubscriber>(_ subscriber: S)
+        where S.StoreSubscriberStateType == T {
+            store.subscribe(subscriber)
+    }
     
-    
+    open func unsubscribe<S: StoreSubscriber>(_ subscriber: S)
+        where S.StoreSubscriberStateType == T {
+            store.unsubscribe(subscriber)
+    }
+
 }
 
 
