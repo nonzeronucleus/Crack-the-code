@@ -80,32 +80,32 @@ struct ActionsView: View {
                     HStack {
                         switch action {
 
-                        case _ as loadState:
+                        case _ as LoadStateAction:
                             NavigationLink(destination: ActionView(title: "Load state", initState: initState, endState: endState)) {
                                 Text("Load state ")
                             }
 
-                        case _ as startGame:
+                        case let startGame as StartGameAction:
                             NavigationLink(destination: ActionView(title: "Start game", initState: initState, endState: endState)) {
-                                Text("Start game")
+                                Text("Start game " + startGame.wordToGuess)
                             }
 
-                        case _ as resetAll:
+                        case _ as ResetAllAction:
                             NavigationLink(destination: ActionView(title: "Reset all", initState: initState, endState: endState)) {
                                 Text("Reset all")
                             }
 
-                        case let addCharacter as addCharacter:
+                        case let addCharacter as AddCharacterAction:
                             NavigationLink(destination: ActionView(title: "Add Character", initState: initState, endState: endState)) {
                                 Text("Add character "+String(addCharacter.char))
                             }
-                        case _ as deleteCharacter:
+                        case _ as DeleteCharacterAction:
                             NavigationLink(destination: ActionView(title: "Delete Character", initState: initState, endState: endState)) {
                                 Text("Delete character")
                             }
 
                             // Mark: Submit guesss
-                        case _ as submitGuess:
+                        case _ as SubmitGuessAction:
                             NavigationLink(destination: ActionView(title: "Submit Guess", initState: initState, endState: endState)) {
                                 Text("Submit guess")
                             }
@@ -199,7 +199,7 @@ struct DebugView: View {
             wordToGuess: state.current.wordToGuess,
             stateString: state.current.toString(),
             actions: state.actions,
-            resetFn: {state.dispatch(resetAll())}
+            resetFn: {state.dispatch(ResetAllAction())}
         )
     }
 }

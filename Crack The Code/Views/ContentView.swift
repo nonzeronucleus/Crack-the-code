@@ -34,10 +34,10 @@ struct ContentView: View {
                             .font(Font.custom("SFUIDisplay-Light", size: 21))
                     }
 
-//                    NavigationLink(destination: GameView()) { //OptionView
-//                        Image(systemName: "gear")
-//                            .font(Font.custom("SFUIDisplay-Light", size: 21))
-//                    }
+                    NavigationLink(destination: OptionView()) { 
+                        Image(systemName: "gear")
+                            .font(Font.custom("SFUIDisplay-Light", size: 21))
+                    }
                     .buttonStyle(.plain)
                     .navigationBarHidden(true)
                     .navigationBarBackButtonHidden(true)

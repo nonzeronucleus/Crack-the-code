@@ -1,5 +1,5 @@
 import ReSwift
 
-func handleLoadState(action: loadState, state: AppState) -> AppState {
+func handleLoadState(action: LoadStateAction, state: AppState) -> AppState {
     return action.state
 }

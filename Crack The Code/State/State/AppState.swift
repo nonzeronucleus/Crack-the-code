@@ -2,9 +2,32 @@ import SwiftUI
 import ReSwift
 
 
+enum Mode:Codable {
+    case letters
+    case numbers
+}
+
+struct Config: Codable {
+    var mode:Mode = .letters
+}
+
 // MARK: - Main state
 
 struct AppState: Codable {
+    var stats = Stats()
+    var wordLength = 5
+    var maxGuesses = 12
+    
+    var error: String? = nil
+    var wordToGuess = ""
+    
+    var currentGuess = ""
+    var previousGuesses:[String] = []
+    var gameState: GameStatus = .notStarded
+    var attemptedLetters:AttemptedLetters = AttemptedLetters()
+    var currentGameMode : Mode
+    var config: Config
+    
     
     init() {
         stats = Stats()
@@ -18,11 +41,13 @@ struct AppState: Codable {
         previousGuesses = []
         gameState = .notStarded
         attemptedLetters = AttemptedLetters()
+        config = Config()
+        currentGameMode = config.mode
     }
     
 
     enum CodeKeys: CodingKey {
-        case stats,wordLength,maxGuesses,error,wordToGuess,currentGuess,previousGuesses,gameState,attemptedLetters
+        case stats,wordLength,maxGuesses,error,wordToGuess,currentGuess,previousGuesses,gameState,attemptedLetters,config,currentGameMode
     }
     
     init(from decoder:Decoder) throws {
@@ -36,6 +61,8 @@ struct AppState: Codable {
         previousGuesses = try values.decode([String].self, forKey: .previousGuesses)
         gameState = try values.decode(GameStatus.self, forKey: .gameState)
         attemptedLetters = try values.decode(AttemptedLetters.self, forKey: .attemptedLetters)
+        config = try values.decodeIfPresent(Config.self, forKey: .config) ?? Config()
+        currentGameMode = try values.decodeIfPresent(Mode.self, forKey: .currentGameMode) ?? .letters
     }
     
     func toString() -> String {
@@ -52,18 +79,6 @@ struct AppState: Codable {
             return error.localizedDescription
         }
     }
-    
-    var stats = Stats()
-    var wordLength = 5
-    var maxGuesses = 12
-    
-    var error: String? = nil
-    var wordToGuess = ""
-    
-    var currentGuess = ""
-    var previousGuesses:[String] = []
-    var gameState: GameStatus = .notStarded
-    var attemptedLetters:AttemptedLetters = AttemptedLetters()
 }
 
 

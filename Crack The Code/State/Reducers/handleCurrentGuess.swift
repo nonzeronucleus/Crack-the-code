@@ -18,11 +18,11 @@ func handleCurrentGuess(action: Action, state: AppState) -> AppState {
     
     switch action {
         // MARK: current guess
-    case let addChar as addCharacter:
+    case let addChar as AddCharacterAction:
         if (state.currentGuess.count<state.wordLength) {
             state.currentGuess.append(addChar.char)
         }
-    case _ as deleteCharacter:
+    case _ as DeleteCharacterAction:
         state.currentGuess = deleteChar(state.currentGuess)
     default:
         break

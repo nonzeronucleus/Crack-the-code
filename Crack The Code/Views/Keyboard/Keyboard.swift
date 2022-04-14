@@ -174,15 +174,15 @@ fileprivate class GameKeyboardController: KeyboardController {
     }
 
     func addChar(_ char:Character) {
-        state.dispatch(addCharacter(char: char))
+        state.dispatch(AddCharacterAction(char: char))
     }
     
     func deleteChar() {
-        state.dispatch(deleteCharacter())
+        state.dispatch(DeleteCharacterAction())
     }
     
     func submit() {
-        state.dispatch(submitGuess())
+        state.dispatch(SubmitGuessAction())
     }
 }
 

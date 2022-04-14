@@ -20,13 +20,11 @@ struct Crack_The_CodeApp: App {
 
         mainStore.subscribe(stateStorer)
 
-        state.dispatch(loadState(state:loadedState))
+        state.dispatch(LoadStateAction(state:loadedState))
         
         if(loadedState.gameState == .notStarded) {
-            state.dispatch(startGame())
+            state.dispatch(triggerGameStart(wordLength: state.current.wordLength))
         }
-        
-//        state.dispatch(startGame())
     }
     
     

@@ -20,7 +20,9 @@ struct NewGameButton: View {
     @EnvironmentObject private var state:ObservableState<AppState>
 
     var body: some View {
-        NewGameButtonImpl(action: {state.dispatch(startGame())})
+        NewGameButtonImpl(action: {
+            state.dispatch(triggerGameStart(wordLength: state.current.wordLength))
+        })
     }
 }
 
