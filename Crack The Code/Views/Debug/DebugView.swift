@@ -13,10 +13,11 @@ struct StateView: View {
                 Text("Error:"+error)
             }
             Text("Word to Guess:"+state.wordToGuess)
-            Text("Curret Guess:"+state.currentGuess)
+            Text("Current Guess:"+state.currentGuess)
 //            Text("Previous Guesses"+state.previousGuesses)
             Text("Game Phase:"+state.gameState.rawValue)
             Text("Attempted letters:"+state.attemptedLetters.toString())
+            Text("Config Game Mode:"+state.config.mode.rawValue)
         }
     }
 //        GeometryReader  { geo in
@@ -109,9 +110,15 @@ struct ActionsView: View {
                             NavigationLink(destination: ActionView(title: "Submit Guess", initState: initState, endState: endState)) {
                                 Text("Submit guess")
                             }
+                            
+                        case let setGameMode as SetGameModeAction:
+                            NavigationLink(destination: ActionView(title: "Set Game Mode "+setGameMode.mode.rawValue, initState: initState, endState: endState)) {
+                                Text("Set Game Mode")
+                            }
 
+                            
                         default:
-                            Text("Unknown answer")
+                            Text("Unknown action")
                         }
                         Spacer()
                     }

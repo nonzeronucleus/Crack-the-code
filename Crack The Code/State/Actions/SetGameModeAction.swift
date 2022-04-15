@@ -1,5 +1,5 @@
 import ReSwift
 
 struct SetGameModeAction: Action {
-    var mode:Mode
+    var mode:GameMode
 }

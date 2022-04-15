@@ -7,27 +7,48 @@
 
 import SwiftUI
 
-struct OptionView: View {
-    @EnvironmentObject private var state:ObservableState<AppState>
+struct OptionViewImpl: View {
+    @State var mode:GameMode
+    var setModeFn: (GameMode) -> Void
+    
+    init(mode:GameMode, setModeFn: @escaping (GameMode) -> Void) {
+        self.mode = mode
+        self.setModeFn = setModeFn
+    }
 
     var body: some View {
+        
         VStack {
-            HStack {
-                Button {
-                    state.dispatch(SetGameModeAction(mode: .letters))
-                } label: {
-                    Text("Letter Mode")
-                }
-                Button {
-                    state.dispatch(SetGameModeAction(mode: .numbers))
-                } label: {
-                    Text("Number Mode")
-                }
+            GroupBox(
+                label: Label("Game Mode", systemImage: "keyboard")
+                                .foregroundColor(.primary))
+            {
+
+                    Picker("Game Mode", selection: $mode) {
+                        Text("Letters").tag(GameMode.letters)
+                        Text("Numbers").tag(GameMode.numbers)
+                    }
+                    .pickerStyle(.segmented)
+            }
+            .onChange(of: mode)  {_ in
+                setModeFn(mode)
             }
             NewGameButton()
+            Spacer()
         }
     }
 }
+
+struct OptionView: View {
+    @EnvironmentObject private var state:ObservableState<AppState>
+    
+    var body: some View {
+        let setGameModeFn: (_ mode:GameMode) -> () = {state.dispatch(SetGameModeAction(mode: $0))}
+        OptionViewImpl(mode: state.current.config.mode,
+                       setModeFn: setGameModeFn)
+    }
+}
+
 
 struct OptionView_Previews: PreviewProvider {
     static var previews: some View {

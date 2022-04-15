@@ -30,5 +30,5 @@ func createStartGameAction(state: AppState) -> StartGameAction {
 
 struct StartGameAction: Action {
     var wordToGuess: String
-    var mode: Mode
+    var mode: GameMode
 }

@@ -2,13 +2,13 @@ import SwiftUI
 import ReSwift
 
 
-enum Mode:Codable {
-    case letters
-    case numbers
+enum GameMode:String, Codable, Equatable {
+    case letters = "Letters"
+    case numbers = "Numbers"
 }
 
 struct Config: Codable {
-    var mode:Mode = .letters
+    var mode:GameMode = .letters
 }
 
 // MARK: - Main state
@@ -25,7 +25,7 @@ struct AppState: Codable {
     var previousGuesses:[String] = []
     var gameState: GameStatus = .notStarded
     var attemptedLetters:AttemptedLetters = AttemptedLetters()
-    var currentGameMode : Mode
+    var currentGameMode : GameMode
     var config: Config
     
     
@@ -62,7 +62,7 @@ struct AppState: Codable {
         gameState = try values.decode(GameStatus.self, forKey: .gameState)
         attemptedLetters = try values.decode(AttemptedLetters.self, forKey: .attemptedLetters)
         config = try values.decodeIfPresent(Config.self, forKey: .config) ?? Config()
-        currentGameMode = try values.decodeIfPresent(Mode.self, forKey: .currentGameMode) ?? .letters
+        currentGameMode = try values.decodeIfPresent(GameMode.self, forKey: .currentGameMode) ?? .letters
     }
     
     func toString() -> String {
