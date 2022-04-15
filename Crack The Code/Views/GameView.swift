@@ -33,7 +33,7 @@ struct GameView: View {
         GeometryReader { geo in
             VStack {
                 HStack (alignment: .top){
-                    let size = min(geo.size.width * 0.99, geo.size.height * 0.55)
+                    let size = min(geo.size.width * 0.99, geo.size.height * 0.53)
 
                     Spacer(minLength: 0)
                     TopView()
@@ -46,6 +46,7 @@ struct GameView: View {
                 BottomView()
             }
             .font(Font.custom("AnnaiMN-Regular", size:18))
+            .padding(0)
         }
         .onAppear {
 //            state.showAnimation = false

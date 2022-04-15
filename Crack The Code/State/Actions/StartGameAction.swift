@@ -1,4 +1,18 @@
+import Foundation
 import ReSwift
+
+
+func power(radix:Int, power:Int) -> Int {
+    return Int(pow(Double(radix), Double(power)))
+}
+
+func getRandomNum(wordLength:Int) -> String {
+    let maxNum = power(radix: 10, power: wordLength)
+    let val = Int.random(in: 0..<maxNum)
+    let str = String(repeating: "0", count: wordLength) + String(val)
+    
+    return str.substring(from: str.count - wordLength)
+}
 
 func createStartGameAction(state: AppState) -> StartGameAction {
     let wordLength = state.wordLength
@@ -9,7 +23,7 @@ func createStartGameAction(state: AppState) -> StartGameAction {
     
     let wordToGuess = ( mode == .letters)
         ? possibleAnswers[Int.random(in: 0..<possibleAnswers.count)]
-        : "12345"
+        : getRandomNum(wordLength:wordLength)
     
     return StartGameAction(wordToGuess: wordToGuess, mode:mode)
 }

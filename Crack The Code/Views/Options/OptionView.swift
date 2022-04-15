@@ -11,17 +11,20 @@ struct OptionView: View {
     @EnvironmentObject private var state:ObservableState<AppState>
 
     var body: some View {
-        HStack {
-            Button {
-                state.dispatch(SetGameModeAction(mode: .letters))
-            } label: {
-                Text("Letter Mode")
+        VStack {
+            HStack {
+                Button {
+                    state.dispatch(SetGameModeAction(mode: .letters))
+                } label: {
+                    Text("Letter Mode")
+                }
+                Button {
+                    state.dispatch(SetGameModeAction(mode: .numbers))
+                } label: {
+                    Text("Number Mode")
+                }
             }
-            Button {
-                state.dispatch(SetGameModeAction(mode: .numbers))
-            } label: {
-                Text("Number Mode")
-            }
+            NewGameButton()
         }
     }
 }

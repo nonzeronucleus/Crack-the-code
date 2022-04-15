@@ -141,6 +141,7 @@ fileprivate struct PreviousGuessesViewImpl: View {
                 GuessRow(wordToGuess:wordToGuess, guess:guess, wordLength:wordLength, gameInProgress:gameInProgress)
             }
         }
+        .padding(0)
     }
 }
 
@@ -164,6 +165,7 @@ struct PreviousGuessesView: View {
             }
             .font(guessFont(size: geo.size, maxGuesses:state.current.maxGuesses))
         }
+
     }
 }
 

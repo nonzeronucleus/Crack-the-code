@@ -42,34 +42,41 @@ struct ContentView: View {
                     .navigationBarHidden(true)
                     .navigationBarBackButtonHidden(true)
                     .navigationBarTitle("Title", displayMode: .inline)
+                    .padding(0)
+
                 }
                 .font(.largeTitle)
                 .navigationTitle("Back")
-                .padding()
-
-
+                .padding(.leading,10)
+                .padding(.trailing,10)
+                .padding(.top,0)
+                .padding(.bottom,0)
 
                 GameView()
                     .navigationBarHidden(true)
+                    .padding(0)
             }
-        }.navigationBarTitle(Text("ContentView"))
-           .navigationViewStyle(StackNavigationViewStyle() )
+        }
+        .navigationBarTitle(Text("ContentView"))
+        .navigationViewStyle(StackNavigationViewStyle() )
     }
 }
 
 
-//func numericState() -> AppState {
-//    var state = AppState()
-//    
-//    return state
-//}
-//
-//
+func numericState() -> AppState {
+    var state = AppState()
+    
+    state.currentGameMode = .numbers
+    
+    return state
+}
+
+
 struct ContentView_Previews: PreviewProvider {
     
     
     static var previews: some View {
         ContentView()
-            .environmentObject( createStore()) //ObservableState(store: mainStore))
+            .environmentObject( createStore(state: numericState()))
     }
 }
