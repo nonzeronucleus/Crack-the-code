@@ -7,8 +7,7 @@ struct ActionHistory<T> {
 }
 
 
-public class ObservableState<T>: ObservableObject  {
-
+public class ObservableState<T>: ObservableObject {
     // MARK: Public properties
 
     @Published public var current: T
@@ -53,7 +52,6 @@ public class ObservableState<T>: ObservableObject  {
         where S.StoreSubscriberStateType == T {
             store.unsubscribe(subscriber)
     }
-
 }
 
 
@@ -64,6 +62,7 @@ extension ObservableState: StoreSubscriber {
 
     public func newState(state: T) {
         DispatchQueue.main.async {
+//            log(state)
             self.current = state
         }
     }

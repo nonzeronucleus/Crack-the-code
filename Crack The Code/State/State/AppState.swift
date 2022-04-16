@@ -28,7 +28,6 @@ struct AppState: Codable {
     var currentGameMode : GameMode
     var config: Config
     
-    
     init() {
         stats = Stats()
         wordLength = 5
