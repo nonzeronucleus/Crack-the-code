@@ -10,6 +10,7 @@
 		2871B2F32807664900C129A9 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2871B2F22807664900C129A9 /* OptionView.swift */; };
 		2883C71828089A1900874304 /* SetGameModeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2883C71728089A1900874304 /* SetGameModeAction.swift */; };
 		2883C71A2808A2A000874304 /* handleSetGameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2883C7192808A2A000874304 /* handleSetGameMode.swift */; };
+		2883C71C2809F73300874304 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2883C71B2809F73300874304 /* Settings.bundle */; };
 		28A4455827F214A600E8EAF2 /* CurrentGuessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A4455727F214A600E8EAF2 /* CurrentGuessView.swift */; };
 		28A4455F27F2412B00E8EAF2 /* AnnaiMN.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28A4455E27F2412B00E8EAF2 /* AnnaiMN.ttf */; };
 		28A4456527F24E1D00E8EAF2 /* PreviousGuessesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A4456427F24E1D00E8EAF2 /* PreviousGuessesView.swift */; };
@@ -96,6 +97,7 @@
 		2871B2F22807664900C129A9 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
 		2883C71728089A1900874304 /* SetGameModeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameModeAction.swift; sourceTree = "<group>"; };
 		2883C7192808A2A000874304 /* handleSetGameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = handleSetGameMode.swift; sourceTree = "<group>"; };
+		2883C71B2809F73300874304 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		28A4455727F214A600E8EAF2 /* CurrentGuessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentGuessView.swift; sourceTree = "<group>"; };
 		28A4455D27F23EFB00E8EAF2 /* Crack-The-Code-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Crack-The-Code-Info.plist"; sourceTree = SOURCE_ROOT; };
 		28A4455E27F2412B00E8EAF2 /* AnnaiMN.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AnnaiMN.ttf; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 		28E1C0DE27F0FB3C0030852C = {
 			isa = PBXGroup;
 			children = (
+				2883C71B2809F73300874304 /* Settings.bundle */,
 				28E1C0E927F0FB3C0030852C /* Crack The Code */,
 				28E1C0FA27F0FB3F0030852C /* Crack The CodeTests */,
 				28E1C10427F0FB3F0030852C /* Crack The CodeUITests */,
@@ -537,6 +540,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2883C71C2809F73300874304 /* Settings.bundle in Resources */,
 				28E1C12E27F18F8F0030852C /* ukenglish.txt in Resources */,
 				28E1C0F227F0FB3F0030852C /* Preview Assets.xcassets in Resources */,
 				28E1C13027F18F8F0030852C /* ukenglishadult in Resources */,
